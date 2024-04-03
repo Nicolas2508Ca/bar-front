@@ -1,0 +1,38 @@
+.crear-sucursal-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 5%;
+    padding: 20px;
+    border: 1px solid black; /* Agrega un borde negro */
+  }
+  
+  .crear-sucursal-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .crear-sucursal-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .crear-sucursal-form label {
+    margin-bottom: 5px;
+  }
+  
+  .crear-sucursal-form input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .crear-sucursal-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+  }

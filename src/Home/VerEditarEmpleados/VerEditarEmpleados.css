@@ -1,0 +1,75 @@
+.empleados-table {
+    width: 80%;
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+    padding: 0;
+    margin-top: 2%;
+    border: 1px solid black;
+}
+
+.empelados-cabecera{
+    background-color: #A1CDF9;
+    color: black;
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.empleados-header, .empleados-data {
+    border: none;
+    text-align: center;
+}
+
+.empleados-header {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.empleados-cuerpo{
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: 1em;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+}
+
+.empleados-data{
+    text-align: center;
+}
+
+.empleados-data-acciones{
+    display: flex;
+    justify-content: center;
+}
+
+.empleados-button-editar{
+    background-color: cornflowerblue;
+    margin-right: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    cursor: pointer;
+}
+
+.empleados-button-editar img {
+    width: 20px;
+    height: 20px;
+}
+
+.empleados-button-eliminar{
+    background-color: red;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    cursor: pointer;
+    margin-right: 2%;
+}
+
+.empleados-button-eliminar img {
+    width: 20px;
+    height: 20px;
+}
+
+.empleados-button:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,61 @@
+/* EditarEmpleado.css */
+
+.editar-empleado {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-top: 3%;
+}
+
+.editar-empleado h1 {
+  text-align: center;
+  color: #333;
+}
+
+.editar-empleado form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editar-empleado label {
+  width: 100%;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.editar-empleado input {
+  width: 92%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.editar-empleado button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.editar-empleado button:hover {
+  background-color: black;
+}
+
+.editar-empleado select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}

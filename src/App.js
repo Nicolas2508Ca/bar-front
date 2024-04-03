@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import { Formulario } from './Login/form/Formulario';
+import { Home } from './Home/Home'
+import { Routes, Route } from 'react-router-dom'
+import { useState } from "react"
+import { CrearSucursal } from './Home/CrearSucursal/CrearSucursal'
+import { EditarSucursal } from './Home/EditarSucursal/EditarSucursal'
+import { VerEditarEmpleados } from './Home/VerEditarEmpleados/VerEditarEmpleados';
+import { CrearEmpleado } from './Home/VerEditarEmpleados/CrearEmpleado/CrearEmpleado'
+import { EditarEmpleado } from './Home/VerEditarEmpleados/EditarEmpleado/EditarEmpleado'
 
 function App() {
+
+  const [user, setUser] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path='/' element={<Formulario setUser={setUser}/>}></Route>
+        <Route path='/Home' element={<Home/>}></Route>
+        <Route path='/Home/CrearSucursal' element={<CrearSucursal/>}></Route>
+        <Route path='/Home/EditarSucursal/:id' element={<EditarSucursal/>}></Route>
+        <Route path='/sucursales/:idSucursal/empleados' element={<VerEditarEmpleados/>}></Route>
+        <Route path='/sucursales/:idSucursal/empleados/CrearEmpleado' element={<CrearEmpleado/>}></Route>
+        <Route path='/sucursales/:idSucursal/empleados/EditarEmpleado/:documento' element={<EditarEmpleado/>}></Route>
+      </Routes>
     </div>
   );
 }

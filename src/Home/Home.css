@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.home_titulo{
+    font-size: 1.5rem;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    padding-top: 1%;
+}
+
+.home_titulo-text{
+    font-size: 1.5em;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.contenedor-del-boton {
+    text-align: left;
+    margin-left: 10%;
+}
+
+.home_boton-crear{
+    background-color: rgb(46, 185, 41);
+    color: black;
+    font-weight: 700;
+    font-size: 1em;
+    margin-top: 2%;
+    padding: 0.5rem;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.home_tabla {
+    width: 80%;
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+    padding: 0;
+    margin-top: 2%;
+    border: 1px solid black;
+}
+
+.home_tabla-cabecera{
+    background-color: #A1CDF9;
+    color: black;
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.home_tabla-cabecera-item{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.home_tabla-cuerpo{
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: 1em;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+}
+
+.home_tabla-acciones{
+    display: flex;
+    justify-content: center;
+}
+
+.home_tabla-editar{
+    background-color: cornflowerblue;
+    margin-right: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    cursor: pointer;
+}
+
+.home_tabla-editar img {
+    width: 20px;
+    height: 20px;
+}
+
+.home_tabla-eliminar{
+    background-color: red;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    cursor: pointer;
+    margin-right: 2%;
+}
+
+.home_tabla-eliminar img {
+    width: 20px;
+    height: 20px;
+}
+
+.home_tabla-empleados{
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: 1em;
+    margin-right: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+    cursor: pointer;
+}
