@@ -3,6 +3,7 @@ import { useState } from "react"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+
 export function Formulario({setUser}){
     const [identificacion, setIdentificacion] = useState("")
     const [contrasenia, setContrasenia] = useState("")
@@ -19,14 +20,16 @@ export function Formulario({setUser}){
         setError(false)
 
         // Realiza una solicitud POST a la API de inicio de sesión
-        axios.post('http://localhost:8080/login', null, { 
+        axios.post('http://localhost:8080/login', null,{ 
             params: {
+
                 documento: identificacion,
-                contraseña: contrasenia
+                contrasenia: contrasenia
             }
         })
         .then(response => {
             if (response.data === "Inicio de sesión exitoso") {
+
                 setUser(identificacion); // Actualiza el estado del usuario solo si la respuesta es exitosa
                 navigate('/home'); // Redirige a la página de inicio si la respuesta es exitosa
             } else {
