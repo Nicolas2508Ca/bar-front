@@ -9,7 +9,7 @@ export function Home() {
 
     // Simula la obtención de datos de las sucursales desde una API
     useEffect(() => {
-        axios.get('http://localhost:8080/api/sucursales') // Reemplaza esto con la URL de tu API
+        axios.get('http://localhost:8080/sucursales') // Reemplaza esto con la URL de tu API
             .then(response => {
                 console.log(response.data); // Agrega esto para ver los datos en la consola
                 setSucursales(response.data);
