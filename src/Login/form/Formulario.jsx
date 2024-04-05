@@ -25,7 +25,7 @@ export function Formulario({setUser}){
 
                 documento: identificacion,
                 contrasenia: contrasenia
-            }
+            }, withCredentials: true
         })
         .then(response => {
             if (response.data === "Inicio de sesión exitoso") {
