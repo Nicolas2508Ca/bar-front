@@ -26,7 +26,7 @@ export function Home() {
     };
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:8080/api/sucursales/${id}`, {
+        fetch(`http://localhost:8080/sucursales/${id}`, {
             method: 'DELETE',
         })
         .then(response => {
