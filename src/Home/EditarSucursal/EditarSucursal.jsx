@@ -12,7 +12,7 @@ export function EditarSucursal() {
 
     useEffect(() => {
         // Obtén los datos de la sucursal cuando el componente se monta
-        axios.get(`http://localhost:8080/api/sucursales/${id}`)
+        axios.get(`http://localhost:8080/sucursales/${id}`)
           .then(response => {
             setNombre(response.data.nombreSucursal);
             setDireccion(response.data.direccionSucursal);
@@ -26,7 +26,7 @@ export function EditarSucursal() {
     const handleSubmit = (event) => {
         event.preventDefault();
       
-        axios.put(`http://localhost:8080/api/sucursales/${id}`, {
+        axios.put(`http://localhost:8080/sucursales/${id}`, {
             nombreSucursal: nombre,
             direccionSucursal: direccion,
         })

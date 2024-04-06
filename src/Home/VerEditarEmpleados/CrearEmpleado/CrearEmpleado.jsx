@@ -69,14 +69,14 @@ export function CrearEmpleado() {
       apellido: apellido,
       email: email,
       telefono: telefono,
-      contraseña: generarContrasenaTemporal(),
+      contrasenia: generarContrasenaTemporal(),
       idRol: selectedCargo, // Aquí deberías usar selectedCargo
       idTipoDoc: selectedTipoDocumento, // Aquí deberías usar selectedTipoDocumento
       idSucursal: sucursalId, // Aquí deberías usar sucursalId
     };
 
     try {
-      await axios.post('http://localhost:8080/empleados', empleado); // Asegúrate de incluir 'http://' en la URL
+      await axios.post('http://localhost:8080/empleados', empleado, { withCredentials:true}); // Asegúrate de incluir 'http://' en la URL
       navigate(`/sucursales/${idSucursal}/empleados`);
     } catch (error) {
       console.error('Hubo un error al crear el empleado: ', error.response);
