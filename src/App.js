@@ -11,12 +11,10 @@ import { EditarEmpleado } from './Home/VerEditarEmpleados/EditarEmpleado/EditarE
 
 function App() {
 
-  const [user, setUser] = useState(null);
-
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Formulario setUser={setUser}/>}></Route>
+        <Route path='/' element={<Formulario/>}></Route>
         <Route path='/Home' element={<Home/>}></Route>
         <Route path='/Home/CrearSucursal' element={<CrearSucursal/>}></Route>
         <Route path='/Home/EditarSucursal/:id' element={<EditarSucursal/>}></Route>

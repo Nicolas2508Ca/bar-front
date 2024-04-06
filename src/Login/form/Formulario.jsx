@@ -29,8 +29,6 @@ export function Formulario({setUser}){
         })
         .then(response => {
             if (response.data === "Inicio de sesión exitoso") {
-
-                setUser(identificacion); // Actualiza el estado del usuario solo si la respuesta es exitosa
                 navigate('/home'); // Redirige a la página de inicio si la respuesta es exitosa
             } else {
                 setLoginMessage(response.data); // Muestra un mensaje de error si la respuesta no es exitosa
