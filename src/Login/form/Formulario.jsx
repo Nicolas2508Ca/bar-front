@@ -3,12 +3,12 @@ import { useState } from "react"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
 export function Formulario({setUser}){
+
     const [identificacion, setIdentificacion] = useState("")
     const [contrasenia, setContrasenia] = useState("")
     const [error, setError] = useState("")
-    const [loginMessage, setLoginMessage] = useState("") // Nuevo estado para el mensaje de inicio de sesión
+    const [loginMessage, setLoginMessage] = useState("") 
     const navigate = useNavigate();
 
     const handleSubmit = event => {
@@ -19,7 +19,6 @@ export function Formulario({setUser}){
         }
         setError(false)
 
-        // Realiza una solicitud POST a la API de inicio de sesión
         axios.post('http://localhost:8080/login', null,{ 
             params: {
 

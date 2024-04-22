@@ -69,7 +69,7 @@ export function VerEditarEmpleados() {
         <thead className='empelados-cabecera'>
             <tr>
                 <th className="empleados-header">Tipo Doc.</th>
-                <th className="empleados-header">Documento</th>
+                <th className="empleados-header">Doc.</th>
                 <th className="empleados-header">Nombre</th>
                 <th className="empleados-header">Apellido</th>
                 <th className="empleados-header">Email</th>
