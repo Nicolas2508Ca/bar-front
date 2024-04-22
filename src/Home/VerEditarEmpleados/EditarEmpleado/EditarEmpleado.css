@@ -1,7 +1,7 @@
 /* EditarEmpleado.css */
 
 .editar-empleado {
-  width: 25%;
+  width: 38%;
   margin: 0 auto;
   padding: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
@@ -34,31 +34,39 @@
 }
 
 .editar-empleado input {
-  width: 92%;
+  width: 94%;
   font-size: 1rem;
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 15px;
   background-color: #A1CDF9;
-  border: 1px solid #A1CDF9;
+  border: 1px solid black;
   border-radius: 4px;
+}
+
+.form-modificar{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .editar-empleado button {
   padding: 10px 20px;
-  border: none;
+  border: 1px solid black;
   border-radius: 4px;
   color: black;
   font-size: medium;
   font-weight: bold;
   cursor: pointer;
+  width: 35%;
+  
 }
 
 .editar-empleado select {
-  width: 100%;
+  width: 99%;
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   background-color: #A1CDF9;
   border-radius: 4px;
   box-sizing: border-box;
@@ -72,18 +80,7 @@
   color: black;
 }
 
-.form-button{
-  margin-right: 1%;
-  width: 100%;
-}
-
-.form-modificar{
-  display: flex;
-  justify-content: center;
-}
-
-.form-button-guardarr{
+.form-button-guardar{
   background-color: #1d87f8;
-  margin-right: 5%;
 }
 

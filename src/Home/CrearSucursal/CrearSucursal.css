@@ -47,6 +47,7 @@
     font-weight: bold;
     cursor: pointer;
     width: 40%;
+    border: 1px solid black;
   }
 
   .form-crear{

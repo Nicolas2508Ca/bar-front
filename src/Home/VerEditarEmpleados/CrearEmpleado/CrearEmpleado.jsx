@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 
 
 export function CrearEmpleado() {
+
   const [documento, setDocumento] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
@@ -81,6 +82,10 @@ export function CrearEmpleado() {
     } catch (error) {
       console.error('Hubo un error al crear el empleado: ', error.response);
     }
+  };
+
+  const handleCancel = () => {
+    navigate(`/sucursales/${idSucursal}/empleados`);
   };
 
   return (
@@ -170,7 +175,7 @@ export function CrearEmpleado() {
 
         <div className='form-boton'>
           <button className='form-crear' type="submit">Crear empleado</button>
-          <button className='form-button-cancelar' type="submit">Cancelar</button>
+          <button className='form-button-cancelar' onClick={handleCancel} type="submit">Cancelar</button>
         </div>
       </form>
     </div>

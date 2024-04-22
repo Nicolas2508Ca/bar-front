@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Header } from '../../Header/Header';
 
 export function CrearSucursal() {
+
   const [nombre, setNombre] = useState("");
   const [direccion, setDireccion] = useState("");
   const navigate = useNavigate();
@@ -24,9 +25,12 @@ export function CrearSucursal() {
     })
   }
 
+  const handleCancel = () => {
+    navigate("/home");
+  };
+
   return (
     <div>
-      <Header />
       <div className="crear-sucursal-container">
         <h2 className="crear-sucursal-title">Crear nueva sucursal</h2>
         <form className="crear-sucursal-form" onSubmit={handleSubmit}>
@@ -39,7 +43,7 @@ export function CrearSucursal() {
 
           <div className='form-submit'>
             <button className="form-crear" type="submit">Crear sucursal</button>
-            <button className="form-cancelar" type="button">Cancelar</button>
+            <button className="form-cancelar" type="button" onClick={handleCancel}>Cancelar</button>
           </div>
 
         </form>

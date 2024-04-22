@@ -38,7 +38,11 @@ export function EditarSucursal() {
           // Maneja cualquier error que pueda ocurrir
           console.error('Hubo un error al actualizar la sucursal:', error);
         });
-      };
+    };
+
+    const handleCancel = () => {
+      navigate("/home");
+    };
 
       return (
         <form onSubmit={handleSubmit} className="form">
@@ -50,7 +54,7 @@ export function EditarSucursal() {
             
             <div className='form-submit'>
               <button type="submit" className="form-button">Guardar cambios</button>
-              <button type="button" className="form-button-cancelar">Cancelar</button>
+              <button type="button" onClick={handleCancel} className="form-button-cancelar">Cancelar</button>
             </div>
         </form>
     );
