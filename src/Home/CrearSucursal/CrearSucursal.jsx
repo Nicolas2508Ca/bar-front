@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './CrearSucursal.css'; // Importa tu archivo CSS
 import { useNavigate } from 'react-router-dom';
+import { Header } from '../../Header/Header';
 
 export function CrearSucursal() {
   const [nombre, setNombre] = useState("");
@@ -24,18 +25,25 @@ export function CrearSucursal() {
   }
 
   return (
-    <div className="crear-sucursal-container">
-      <h2 className="crear-sucursal-title">Crear nueva sucursal</h2>
-      <form className="crear-sucursal-form" onSubmit={handleSubmit}>
+    <div>
+      <Header />
+      <div className="crear-sucursal-container">
+        <h2 className="crear-sucursal-title">Crear nueva sucursal</h2>
+        <form className="crear-sucursal-form" onSubmit={handleSubmit}>
 
-        <label htmlFor="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" value={nombre} onChange={e => setNombre(e.target.value)} />
+          <label htmlFor="nombre">Nombre:</label>
+          <input type="text" id="nombre" autoComplete="off" name="nombre" value={nombre} onChange={e => setNombre(e.target.value)} />
 
-        <label htmlFor="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion" value={direccion} onChange={e => setDireccion(e.target.value)} />
+          <label htmlFor="direccion">Dirección:</label>
+          <input type="text" autoComplete="off" id="direccion" name="direccion" value={direccion} onChange={e => setDireccion(e.target.value)} />
 
-        <button type="submit">Crear</button>
-      </form>
+          <div className='form-submit'>
+            <button className="form-crear" type="submit">Crear sucursal</button>
+            <button className="form-cancelar" type="button">Cancelar</button>
+          </div>
+
+        </form>
+      </div>
     </div>
   );
 }

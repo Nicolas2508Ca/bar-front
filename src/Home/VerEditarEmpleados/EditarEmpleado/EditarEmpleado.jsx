@@ -89,7 +89,7 @@ export function EditarEmpleado() {
       };
     return (
         <div className="editar-empleado">
-        <h1>Editar Empleado</h1>
+        <h1 className='editar-empleado-titulo'>Editar Empleado</h1>
         <form onSubmit={handleSubmit}>
             <label>Nombre:
             <input 
@@ -147,8 +147,10 @@ export function EditarEmpleado() {
             value={sucursal} 
             onChange={e => setSucursal(e.target.value)} />
             </label>
-
-            <button type="submit">Guardar cambios</button>
+            <div className='form-modificar'>
+              <button className="form-button-guardarr" type="submit">Guardar</button>
+              <button className="form-button-cancelar" type="button">Cancelar</button>
+            </div>
         </form>
         </div>
     );

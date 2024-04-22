@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Header } from '../Header/Header';
 
 export function Home() {
     const [sucursales, setSucursales] = useState([]);
@@ -57,13 +58,13 @@ export function Home() {
 
     return (
         <section className="home">
+            <Header />
             <div className='home_titulo'>
                 <h1 className='home_titulo-text'>Gestion de sucursales</h1>
-            </div>
-            <div className='contenedor-del-boton'>
                 <button 
-                className='home_boton-crear'
-                onClick={handleCreate}>Crear sucursal</button>
+                    className='home-crear'
+                    onClick={handleCreate}>Crear sucursal
+                </button>
             </div>
             <table className='home_tabla'>
                 <thead className='home_tabla-cabecera'>
@@ -99,6 +100,7 @@ export function Home() {
                     ))}
                 </tbody>
             </table>
+            
         </section>
     );
 }

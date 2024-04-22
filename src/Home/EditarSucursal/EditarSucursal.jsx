@@ -47,8 +47,11 @@ export function EditarSucursal() {
 
             <label htmlFor="direccion" className="form-label">Dirección:</label>
             <input type="text" id="direccion" name="direccion" value={direccion || ''} onChange={e => setDireccion(e.target.value)} className="form-input" />
-
-            <button type="submit" className="form-button">Guardar cambios</button>
+            
+            <div className='form-submit'>
+              <button type="submit" className="form-button">Guardar cambios</button>
+              <button type="button" className="form-button-cancelar">Cancelar</button>
+            </div>
         </form>
     );
 }

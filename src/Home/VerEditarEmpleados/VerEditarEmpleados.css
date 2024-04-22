@@ -20,6 +20,16 @@
     text-align: center;
 }
 
+.home_boton-crear{
+    background-color: rgb(172, 170, 170);
+    color: black;
+    font-size: medium;
+    padding: 0.5rem;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-right: 2rem;
+
+}
 .empleados-header {
     margin-left: 5%;
     margin-right: 5%;

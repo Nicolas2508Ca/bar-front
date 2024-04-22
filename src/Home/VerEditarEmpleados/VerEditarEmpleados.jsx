@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './VerEditarEmpleados.css';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Header } from '../../Header/Header';
 
 export function VerEditarEmpleados() {
 
@@ -52,17 +53,17 @@ export function VerEditarEmpleados() {
 
     return (
         <section>
+            <Header />
             <div className='home_titulo'>
                 <h1 className='home_titulo-text'>Gestion de Empleados</h1>
-            </div>
-            <div className='contenedor-del-boton'>
-            <button className='home_boton-crear' onClick={irAInicio}>Ir a inicio</button>
-            </div>
-            <div className='contenedor-del-boton'>
-                <button 
-                className='home_boton-crear'
-                onClick={crearEmpleado}
-                >Crear Empleado</button>
+                <div>
+                    <button className='home_boton-crear' onClick={irAInicio}>Ir a sucursales</button>
+                    <button 
+                        className='home-crear'
+                        onClick={crearEmpleado}
+                        >Crear Empleado
+                    </button>
+                </div>
             </div>
         <table className="empleados-table">
         <thead className='empelados-cabecera'>

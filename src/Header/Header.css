@@ -1,0 +1,20 @@
+.header{
+    background-color: #007DFF;
+    text-align: end;
+}
+
+.header-boton{
+    background-color: rgb(190, 187, 187);
+    color: black;
+    font-size: medium;
+    margin: 1rem;
+    width: 3rem;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: medium;
+}
+
+.header-boton:hover {
+    background-color: red;
+    color: white;
+}

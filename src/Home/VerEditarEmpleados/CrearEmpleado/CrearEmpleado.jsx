@@ -93,6 +93,7 @@ export function CrearEmpleado() {
         type="number" 
         id="documento" 
         name="documento" 
+        autoComplete="off"
         value={documento}
         onChange={e => setDocumento(e.target.value)}/>
 
@@ -101,6 +102,7 @@ export function CrearEmpleado() {
         type="text" 
         id="nombre" 
         name="nombre"
+        autoComplete="off"
         onChange={e => setNombre(e.target.value)}
         value={nombre}/>
 
@@ -109,6 +111,7 @@ export function CrearEmpleado() {
         type="text" 
         id="apellido" 
         name="apellido"
+        autoComplete="off"
         value={apellido}
         onChange={e => setApellido(e.target.value)}/>
 
@@ -117,6 +120,7 @@ export function CrearEmpleado() {
         type="text" 
         id="email" 
         name="email"
+        autoComplete="off"
         value={email}
         onChange={e => setEmail(e.target.value)}/>
 
@@ -125,6 +129,7 @@ export function CrearEmpleado() {
         type="text" 
         id="telefono" 
         name="telefono"
+        autoComplete="off"
         value={telefono}
         onChange={e => setTelefono(e.target.value)}/>
 
@@ -133,6 +138,7 @@ export function CrearEmpleado() {
         className="select-style"
         type="text" 
         id="cargo" 
+        autoComplete="off"
         name="cargo"
         value={selectedCargo}
         onChange={e => setSelectedCargo(e.target.value)}>
@@ -145,7 +151,7 @@ export function CrearEmpleado() {
         <select 
         className="select-style"
         type="text" 
-        id="tipodoocumento" 
+        id="tipodoocumento"
         name="tipodoocumento"
         value={selectedTipoDocumento}
         onChange={e => setSelectedTipoDocumento(e.target.value)}>
@@ -162,7 +168,10 @@ export function CrearEmpleado() {
         value={sucursalId}
         readOnly/>
 
-        <button type="submit">Crear</button>
+        <div className='form-boton'>
+          <button className='form-crear' type="submit">Crear empleado</button>
+          <button className='form-button-cancelar' type="submit">Cancelar</button>
+        </div>
       </form>
     </div>
   );

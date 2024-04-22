@@ -4,36 +4,24 @@ body {
 }
 
 .home_titulo{
+    
     font-size: 1.5rem;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    padding-top: 1%;
+    text-align: start;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .home_titulo-text{
     font-size: 1.5em;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-.contenedor-del-boton {
-    text-align: left;
-    margin-left: 10%;
-}
-
-.home_boton-crear{
-    background-color: rgb(46, 185, 41);
-    color: black;
-    font-weight: 700;
-    font-size: 1em;
-    margin-top: 2%;
-    padding: 0.5rem;
-    border: 1px solid black;
-    cursor: pointer;
+    font-family: "Roboto Slab", serif;
+    margin-bottom: 0;
+    margin-top: 0;
+    align-items: center;
 }
 
 .home_tabla {
@@ -79,6 +67,7 @@ body {
     margin-top: 2%;
     margin-bottom: 2%;
     cursor: pointer;
+    border: 1px solid black;
 }
 
 .home_tabla-editar img {
@@ -92,6 +81,7 @@ body {
     margin-bottom: 2%;
     cursor: pointer;
     margin-right: 2%;
+    border: 1px solid black;
 }
 
 .home_tabla-eliminar img {
@@ -99,10 +89,25 @@ body {
     height: 20px;
 }
 
+.crear-box{
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.home-crear{
+    background-color: rgb(106, 224, 101);
+    color: black;
+    font-size: medium;
+    padding: 0.5rem;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
 .home_tabla-empleados{
     background-color: white;
     color: black;
     font-weight: 500;
+    border: 1px solid black;
     font-size: 1em;
     margin-right: 2%;
     margin-top: 2%;
