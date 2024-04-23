@@ -27,8 +27,13 @@ export function Formulario({setUser}){
             }, withCredentials: true
         })
         .then(response => {
-            if (response.data === "Inicio de sesión exitoso") {
+            if (response.data === "Inicio de sesión exitoso admin") {
                 navigate('/home'); // Redirige a la página de inicio si la respuesta es exitosa
+            } else {
+                setLoginMessage(response.data); // Muestra un mensaje de error si la respuesta no es exitosa
+            }
+            if (response.data === "Inicio de sesión exitoso mesero") {
+                navigate('/HomeMesero'); // Redirige a la página de inicio si la respuesta es exitosa
             } else {
                 setLoginMessage(response.data); // Muestra un mensaje de error si la respuesta no es exitosa
             }

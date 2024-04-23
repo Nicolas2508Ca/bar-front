@@ -6,8 +6,9 @@ import { useState } from "react"
 import { CrearSucursal } from './Home/CrearSucursal/CrearSucursal'
 import { EditarSucursal } from './Home/EditarSucursal/EditarSucursal'
 import { VerEditarEmpleados } from './Home/VerEditarEmpleados/VerEditarEmpleados';
-import { CrearEmpleado } from './Home/VerEditarEmpleados/CrearEmpleado/CrearEmpleado'
-import { EditarEmpleado } from './Home/VerEditarEmpleados/EditarEmpleado/EditarEmpleado'
+import { CrearEmpleado } from './Home/VerEditarEmpleados/CrearEmpleado/CrearEmpleado';
+import { EditarEmpleado } from './Home/VerEditarEmpleados/EditarEmpleado/EditarEmpleado';
+import { HomeMesero } from './HomeMesero/HomeMesero';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <div>
       <Routes>
         <Route path='/' element={<Formulario/>}></Route>
+        <Route path='/HomeMesero' element={<HomeMesero/>}></Route>
         <Route path='/Home' element={<Home/>}></Route>
         <Route path='/Home/CrearSucursal' element={<CrearSucursal/>}></Route>
         <Route path='/Home/EditarSucursal/:id' element={<EditarSucursal/>}></Route>
