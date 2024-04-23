@@ -48,7 +48,7 @@ export function Formulario({setUser}){
             >
                 <input
                 className="formulario_input"
-                type="text" 
+                type="number" 
                 placeholder="Nº de identificación"
                 onChange={(event) => setIdentificacion(event.target.value)}
                 />

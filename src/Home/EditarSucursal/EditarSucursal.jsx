@@ -46,11 +46,24 @@ export function EditarSucursal() {
 
       return (
         <form onSubmit={handleSubmit} className="form">
-            <label htmlFor="nombre" className="form-label">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" value={nombre || ''} onChange={e => setNombre(e.target.value)} className="form-input" />
+            <label 
+            htmlFor="nombre" 
+            className="form-label">Nombre <span class="required">*</span>
+            </label>
+            <input 
+            type="text" 
+            id="nombre" 
+            name="nombre"
+            required
+            value={nombre || ''} onChange={e => setNombre(e.target.value)} className="form-input"/>
 
-            <label htmlFor="direccion" className="form-label">Dirección:</label>
-            <input type="text" id="direccion" name="direccion" value={direccion || ''} onChange={e => setDireccion(e.target.value)} className="form-input" />
+            <label htmlFor="direccion" className="form-label">Dirección <span class="required">*</span></label>
+            <input 
+            type="text" 
+            id="direccion" 
+            name="direccion"
+            required 
+            value={direccion || ''} onChange={e => setDireccion(e.target.value)} className="form-input"/>
             
             <div className='form-submit'>
               <button type="submit" className="form-button">Guardar cambios</button>

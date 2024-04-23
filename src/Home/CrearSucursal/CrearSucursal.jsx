@@ -35,11 +35,23 @@ export function CrearSucursal() {
         <h2 className="crear-sucursal-title">Crear nueva sucursal</h2>
         <form className="crear-sucursal-form" onSubmit={handleSubmit}>
 
-          <label htmlFor="nombre">Nombre:</label>
-          <input type="text" id="nombre" autoComplete="off" name="nombre" value={nombre} onChange={e => setNombre(e.target.value)} />
+          <label htmlFor="nombre">Nombre  <span class="required">*</span></label>
+          <input 
+          type="text" 
+          id="nombre" 
+          autoComplete="off" 
+          name="nombre" 
+          required
+          value={nombre} onChange={e => setNombre(e.target.value)} />
 
-          <label htmlFor="direccion">Dirección:</label>
-          <input type="text" autoComplete="off" id="direccion" name="direccion" value={direccion} onChange={e => setDireccion(e.target.value)} />
+          <label htmlFor="direccion">Dirección <span class="required">*</span></label>
+          <input 
+          type="text" 
+          autoComplete="off" 
+          id="direccion" 
+          name="direccion"
+          required 
+          value={direccion} onChange={e => setDireccion(e.target.value)} />
 
           <div className='form-submit'>
             <button className="form-crear" type="submit">Crear sucursal</button>

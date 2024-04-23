@@ -57,3 +57,7 @@
   .form-cancelar{
     background-color: red;
   }
+
+  .required{
+    color: red;
+  }

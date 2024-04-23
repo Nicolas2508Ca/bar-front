@@ -93,52 +93,57 @@ export function CrearEmpleado() {
       <h2 className="crear-sucursal-title">Crear nuevo empleado</h2>
       <form className="crear-sucursal-form" onSubmit={crearEmpleado}>
 
-        <label htmlFor="documento">Documento:</label>
+        <label htmlFor="documento">Documento <span class="required">*</span></label>
         <input 
         type="number" 
         id="documento" 
         name="documento" 
         autoComplete="off"
+        required
         value={documento}
         onChange={e => setDocumento(e.target.value)}/>
 
-        <label htmlFor="nombre">Nombre:</label>
+        <label htmlFor="nombre">Nombre <span class="required">*</span></label>
         <input 
         type="text" 
         id="nombre" 
         name="nombre"
+        required
         autoComplete="off"
         onChange={e => setNombre(e.target.value)}
         value={nombre}/>
 
-        <label htmlFor="apellido">Apellido:</label>
+        <label htmlFor="apellido">Apellido <span class="required">*</span></label>
         <input 
         type="text" 
         id="apellido" 
         name="apellido"
+        required
         autoComplete="off"
         value={apellido}
         onChange={e => setApellido(e.target.value)}/>
 
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">Email <span class="required">*</span></label>
         <input 
         type="text" 
         id="email" 
         name="email"
+        required
         autoComplete="off"
         value={email}
         onChange={e => setEmail(e.target.value)}/>
 
-        <label htmlFor="telefono">Telefono:</label>
+        <label htmlFor="telefono">Telefono <span class="required">*</span></label>
         <input 
         type="text" 
         id="telefono" 
         name="telefono"
+        required
         autoComplete="off"
         value={telefono}
         onChange={e => setTelefono(e.target.value)}/>
 
-        <label htmlFor="cargo">Cargo:</label>
+        <label htmlFor="cargo">Cargo <span class="required">*</span></label>
         <select 
         className="select-style"
         type="text" 
@@ -152,7 +157,7 @@ export function CrearEmpleado() {
         ))}
         </select>
 
-        <label htmlFor="tipodocumento">Tipo documento:</label>
+        <label htmlFor="tipodocumento">Tipo documento <span class="required">*</span></label>
         <select 
         className="select-style"
         type="text" 
@@ -165,7 +170,7 @@ export function CrearEmpleado() {
         ))}
         </select>
 
-        <label htmlFor="sucursal">Sucursal</label>
+        <label htmlFor="sucursal">Sucursal <span class="required">*</span></label>
         <input 
         type="text" 
         id="sucursal" 
