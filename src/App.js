@@ -9,6 +9,7 @@ import { VerEditarEmpleados } from './Home/VerEditarEmpleados/VerEditarEmpleados
 import { CrearEmpleado } from './Home/VerEditarEmpleados/CrearEmpleado/CrearEmpleado';
 import { EditarEmpleado } from './Home/VerEditarEmpleados/EditarEmpleado/EditarEmpleado';
 import { HomeMesero } from './HomeMesero/HomeMesero';
+import { TomarOrden } from './HomeMesero/TomarOrden/TomarOrden'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Formulario/>}></Route>
         <Route path='/HomeMesero' element={<HomeMesero/>}></Route>
+        <Route path='/HomeMesero/TomarOrden' element={<TomarOrden/>}></Route>
         <Route path='/Home' element={<Home/>}></Route>
         <Route path='/Home/CrearSucursal' element={<CrearSucursal/>}></Route>
         <Route path='/Home/EditarSucursal/:id' element={<EditarSucursal/>}></Route>

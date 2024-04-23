@@ -1,0 +1,49 @@
+.home-sucursal{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sucursal-titulo{
+    margin-top: 2rem;
+    font-size: 1.5em;
+    font-family: "Roboto Slab", serif;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.mesas{
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: space-around;
+   margin-top: 2rem;
+}
+
+.mesas-box{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #A1CDF9;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.mesas-sucursal{
+    width: 60%;     
+}
+
+.mesa-nombre{
+    font-family: "Roboto Slab", serif;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.mesas-box:hover {
+    border: 1px solid black;
+  }
