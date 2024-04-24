@@ -71,12 +71,20 @@ export function CrearEmpleado() {
       email: email,
       telefono: telefono,
       contrasenia: generarContrasenaTemporal(),
-      idRol: selectedCargo, // Aquí deberías usar selectedCargo
-      idTipoDoc: selectedTipoDocumento, // Aquí deberías usar selectedTipoDocumento
-      idSucursal: sucursalId, // Aquí deberías usar sucursalId
+      idRol: {
+        idRol: selectedCargo
+      }, // Aquí deberías usar selectedCargo
+      idTipoDoc: {
+        idTipoDoc: selectedTipoDocumento
+      }, // Aquí deberías usar selectedTipoDocumento
+      idSucursal: {
+        idSucursal: sucursalId
+      }, // Aquí deberías usar sucursalId
     };
+    
 
     try {
+      console.log(empleado);
       await axios.post('http://localhost:8080/empleados', empleado, { withCredentials:true}); // Asegúrate de incluir 'http://' en la URL
       navigate(`/sucursales/${idSucursal}/empleados`);
     } catch (error) {
@@ -145,16 +153,21 @@ export function CrearEmpleado() {
 
         <label htmlFor="cargo">Cargo <span class="required">*</span></label>
         <select 
-        className="select-style"
-        type="text" 
-        id="cargo" 
-        autoComplete="off"
-        name="cargo"
-        value={selectedCargo}
-        onChange={e => setSelectedCargo(e.target.value)}>
-        {cargo.map(cargo => (
-          <option key={cargo.idRol} value={cargo.idRol}>{cargo.nombreRol}</option>
-        ))}
+          className="select-style"
+          type="text" 
+          id="cargo" 
+          autoComplete="off"
+          name="cargo"
+          value={selectedCargo}
+          onChange={e => {
+            console.log("CARGO SELECCIONADO: " + e.target.value);  
+            setSelectedCargo(e.target.value)
+          }}
+        >
+          <option value="" disabled>Selecciona un cargo</option>
+          {cargo.map(cargo => (
+            <option key={cargo.idRol} value={cargo.idRol}>{cargo.nombreRol}</option>
+          ))}
         </select>
 
         <label htmlFor="tipodocumento">Tipo documento <span class="required">*</span></label>
@@ -164,7 +177,9 @@ export function CrearEmpleado() {
         id="tipodoocumento"
         name="tipodoocumento"
         value={selectedTipoDocumento}
-        onChange={e => setSelectedTipoDocumento(e.target.value)}>
+        onChange={e => {
+          setSelectedTipoDocumento(e.target.value)}}>
+        <option value="" disabled>Selecciona un tipo de documento</option>
         {tipodocumento.map(tipo => (
           <option key={tipo.idTipoDoc} value={tipo.idTipoDoc}>{tipo.nombreTipoDoc}</option>
         ))}

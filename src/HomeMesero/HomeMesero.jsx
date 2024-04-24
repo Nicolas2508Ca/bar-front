@@ -15,7 +15,7 @@ export function HomeMesero(){
             <Header />
             <div className="home-sucursal">
                 <h1 className="sucursal-titulo">Nombre sucursal</h1>
-                <div className="home">
+                <div className="home-mesero">
                     <div className="mesas">
                         <div className="mesas-box" onClick={TomarOrden}>
                             <img className="mesas-sucursal" src="mesa-de-comedor.png"></img>

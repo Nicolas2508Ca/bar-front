@@ -29,6 +29,7 @@ export function VerEditarEmpleados() {
     useEffect(() => {
         axios.get(`http://localhost:8080/sucursales/${idSucursal}/empleados`)
             .then(response => {
+                console.log(response.data);
                 setEmpleados(response.data);
             })
             .catch(error => console.error(error));
@@ -81,13 +82,13 @@ export function VerEditarEmpleados() {
         <tbody className='empleados-cuerpo'>
             {empleados.map(empleado => (
             <tr key={empleado.documento}>
-                <td className="empleados-data">{tipodoc[empleado.idTipoDoc]}</td>
+                <td className="empleados-data">{tipodoc[empleado.idTipoDoc.idTipoDoc]}</td>
                 <td className="empleados-data">{empleado.documento}</td>
                 <td className="empleados-data">{empleado.nombre}</td>
                 <td className="empleados-data">{empleado.apellido}</td>
                 <td className="empleados-data">{empleado.email}</td>
                 <td className="empleados-data">{empleado.telefono}</td>
-                <td className="empleados-data">{roles[empleado.idRol]}</td> {/* Muestra el rol aquí */}
+                <td className="empleados-data">{roles[empleado.idRol.idRol]}</td> {/* Muestra el rol aquí */}
                 <td className="empleados-data-acciones">
                     <button 
                     className="empleados-button-editar" 

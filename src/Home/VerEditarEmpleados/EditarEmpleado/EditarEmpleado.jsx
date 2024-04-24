@@ -70,7 +70,7 @@ export function EditarEmpleado() {
   const handleSubmit = (event) => {
     event.preventDefault();
   
-    axios.put(`http://localhost:8080/empleados/${documento}`, {
+    axios.patch(`http://localhost:8080/empleados/${documento}`, {
         nombre: nombre,
         apellido: apellido,
         email: email,
@@ -127,10 +127,15 @@ export function EditarEmpleado() {
             </label>
 
             <label>Cargo:
+              
               <select 
               type="text" 
               value={selectedCargo} 
-              onChange={e => setSelectedCargo(e.target.value)}>
+              onChange={e =>
+               {
+                console.log(e.target.value);
+                setSelectedCargo(e.target.value)}}>
+                <option value="" disabled>Selecciona un cargo</option>
               {cargo.map(cargo => (
                 <option key={cargo.idRol} value={cargo.idRol}>{cargo.nombreRol}</option>
               ))}
@@ -141,7 +146,10 @@ export function EditarEmpleado() {
               <select 
               type="text" 
               value={selectedTipoDocumento} 
-              onChange={e => setSelectedTipoDocumento(e.target.value)}>
+              onChange={e => {
+                console.log(e.target.value);
+                setSelectedTipoDocumento(e.target.value)}}>
+                
               {tipoDocumento.map(tipo => (
                 <option key={tipo.idTipoDoc} value={tipo.idTipoDoc}>{tipo.nombreTipoDoc}</option>
               ))}
@@ -151,7 +159,7 @@ export function EditarEmpleado() {
             <label>Sucursal:
               <input 
               type="text" 
-              value={sucursal} 
+              value={idSucursal} 
               onChange={e => setSucursal(e.target.value)} />
             </label>
 
