@@ -13,13 +13,14 @@ export function EditarEmpleado() {
   const [telefono, setTelefono] = useState('');
   const [cargo, setCargo] = useState([]);
   const [tipoDocumento, setTipoDocumento] = useState([]);
-  const [sucursal, setSucursal] = useState('');
+  const [sucursal, setSucursal] = useState([]);
 
   const { documento } = useParams();
   const { idSucursal } = useParams();
 
   const [selectedTipoDocumento, setSelectedTipoDocumento] = useState('');
   const [selectedCargo, setSelectedCargo] = useState('');
+  const [selectedSucursal, setSelectedSucursal] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export function EditarEmpleado() {
           setTelefono(empleado.telefono);
           setSelectedCargo(empleado.idRol);
           setSelectedTipoDocumento(empleado.idTipoDoc);
-          setSucursal(empleado.idSucursal);
+          setSelectedSucursal(empleado.idSucursal);
           console.log(response.data);
         })
         .catch(error => console.error(error));
@@ -52,7 +53,19 @@ export function EditarEmpleado() {
         console.error('Hubo un error al obtener los tipos de documento: ', error);
       });
   }, []);
-
+  useEffect(() => {
+    axios.get('http://localhost:8080/sucursales')
+      .then(response => {
+        if (Array.isArray(response.data)) {
+          setSucursal(response.data);
+        } else {
+          console.error('La respuesta de la API no es un array: ', response.data);
+        }
+      })
+      .catch(error => {
+        console.error('Hubo un error al obtener las sucursales: ', error);
+      });
+  }, []);
   useEffect(() => {
     axios.get('http://localhost:8080/cargo')
       .then(response => {
@@ -69,15 +82,23 @@ export function EditarEmpleado() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+    console.log("Cargo: " + selectedCargo);
+    console.log("Tipo documento: " + selectedTipoDocumento);
+    console.log("Sucursal: " + sucursal);
     axios.patch(`http://localhost:8080/empleados/${documento}`, {
         nombre: nombre,
         apellido: apellido,
         email: email,
         telefono: telefono,
-        idRol: selectedCargo,
-        idTipoDoc: selectedTipoDocumento,
-        idSucursal: sucursal
+        idRol:{ 
+          idRol: selectedCargo
+        },
+        idTipoDoc:{
+          idTipoDoc: selectedTipoDocumento
+        },
+        idSucursal: {
+          idSucursal: selectedSucursal
+        }
     })
     .then(response => {
         // Haz algo con la respuesta, por ejemplo, redirige al usuario a la página de inicio
@@ -156,13 +177,30 @@ export function EditarEmpleado() {
               </select>
             </label>
 
-            <label>Sucursal:
+            {/* <label>Sucursal:
               <input 
               type="text" 
               value={idSucursal} 
-              onChange={e => setSucursal(e.target.value)} />
+              onChange={e => {
+                console.log(e.target.value);
+                setSucursal(e.target.value);
+              }} />
+            </label> */}
+              <label>Sucursal:
+              
+              <select 
+              type="text" 
+              value={selectedSucursal} 
+              onChange={e =>
+               {
+                console.log(e.target.value);
+                setSelectedSucursal(e.target.value)}}>
+                <option value="" disabled>Selecciona una sucursal</option>
+              {sucursal.map(sucursal => (
+                <option key={sucursal.idSucursal} value={sucursal.idSucursal}>{sucursal.nombreSucursal}</option>
+              ))}
+              </select>
             </label>
-
             <div className='form-modificar'>
               <button className="form-button-guardar" type="submit">Guardar cambios</button>
               <button className="form-button-cancelar" onClick={handleCancel} type="button">Cancelar</button>
