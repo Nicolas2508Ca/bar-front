@@ -133,7 +133,7 @@ export function CrearEmpleado() {
 
         <label htmlFor="email">Email <span class="required">*</span></label>
         <input 
-        type="text" 
+        type="email" 
         id="email" 
         name="email"
         required
@@ -143,7 +143,7 @@ export function CrearEmpleado() {
 
         <label htmlFor="telefono">Telefono <span class="required">*</span></label>
         <input 
-        type="text" 
+        type="number" 
         id="telefono" 
         name="telefono"
         required
