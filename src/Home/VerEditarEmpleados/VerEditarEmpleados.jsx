@@ -9,7 +9,7 @@ export function VerEditarEmpleados() {
     const navigate = useNavigate();
     const { idSucursal } = useParams();
     const [empleados, setEmpleados] = useState([]);
-
+    
     const roles = {
         1: 'Administrador',
         2: 'Mesero',

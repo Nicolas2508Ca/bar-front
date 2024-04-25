@@ -9,6 +9,8 @@ export function Formulario({setUser}){
     const [contrasenia, setContrasenia] = useState("")
     const [error, setError] = useState("")
     const [loginMessage, setLoginMessage] = useState("") 
+    const [sucursalId, setSucursalId] = useState("");
+    const [documentoEmpleado, setDocumentoEmpleado] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = event => {
@@ -27,13 +29,18 @@ export function Formulario({setUser}){
             }, withCredentials: true
         })
         .then(response => {
-            if (response.data === "Inicio de sesión exitoso admin") {
-                navigate('/home'); // Redirige a la página de inicio si la respuesta es exitosa
+            const{ mensaje, sucursal, documentoEmpleado } = response.data
+            console.log("Recibe respuesta: ");
+            console.log(sucursal)
+            if (mensaje === "Inicio de sesión exitoso admin") {                
+                navigate('/home', { state: { sucursal, documentoEmpleado}}); // Redirige a la página de inicio si la respuesta es exitosa
             } else {
                 setLoginMessage(response.data); // Muestra un mensaje de error si la respuesta no es exitosa
             }
-            if (response.data === "Inicio de sesión exitoso mesero") {
-                navigate('/HomeMesero'); // Redirige a la página de inicio si la respuesta es exitosa
+            if (mensaje === "Inicio de sesión exitoso mesero") {
+                setSucursalId(response.data.sucursalId);
+                setDocumentoEmpleado(response.data.documentoEmpleado);
+                navigate('/HomeMesero', { state: {sucursal, documentoEmpleado}}); // Redirige a la página de inicio si la respuesta es exitosa
             } else {
                 setLoginMessage(response.data); // Muestra un mensaje de error si la respuesta no es exitosa
             }
