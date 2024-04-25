@@ -1,9 +1,77 @@
 .orden-titulo{
     text-align: center;
+    margin-top: 2rem;
+    font-size: 2em;
+    font-family: "Roboto Slab", serif;
 }
 
 .orden-info{
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.orden-info-productos{
+    width: 30%;
+    margin: 1em;
+    background-color: #f9f9f9;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.orden-subtotal{
+    width: 60%;
+    margin: 1em;
+    background-color: #f9f9f9;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.orden-info h1 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    font-family: "Roboto Slab", serif;
+    text-align: center;
+}
+
+.orden-info table {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.orden-info table th, .orden-info table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.orden-info table th {
+    background-color: #A1CDF9;
+    color: black;
+    text-align: center;
+}
+
+.orden-info button {
+    display: inline-block;
+    background-color: #A1CDF9;
+    color: black;
+    font-family: "Roboto Slab", serif;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition-duration: 0.4s;
+}
+
+.orden-info button:hover {
+    background-color: rgb(236, 84, 84);
 }
