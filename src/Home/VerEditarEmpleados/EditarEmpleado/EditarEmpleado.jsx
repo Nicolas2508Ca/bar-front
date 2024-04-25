@@ -11,6 +11,7 @@ export function EditarEmpleado() {
   const [apellido, setApellido] = useState('');
   const [email, setEmail] = useState('');
   const [telefono, setTelefono] = useState('');
+  
   const [cargo, setCargo] = useState([]);
   const [tipoDocumento, setTipoDocumento] = useState([]);
   const [sucursal, setSucursal] = useState([]);
@@ -18,26 +19,34 @@ export function EditarEmpleado() {
   const { documento } = useParams();
   const { idSucursal } = useParams();
 
-  const [selectedTipoDocumento, setSelectedTipoDocumento] = useState('');
-  const [selectedCargo, setSelectedCargo] = useState('');
-  const [selectedSucursal, setSelectedSucursal] = useState('');
+  const [selectedCargo, setSelectedCargo] = useState(null);
+  const [originalCargo, setOriginalCargo] = useState(null);
+  const [selectedTipoDocumento, setSelectedTipoDocumento] = useState(null);
+  const [originalTipoDocumento, setOriginalTipoDocumento] = useState(null);
+  const [selectedSucursal, setSelectedSucursal] = useState(null);
+  const [originalSucursal, setOriginalSucursal] = useState(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
-      axios.get(`http://localhost:8080/empleados/${documento}`)
-        .then(response => {
-          const empleado = response.data;
-          setNombre(empleado.nombre);
-          setApellido(empleado.apellido);
-          setEmail(empleado.email);
-          setTelefono(empleado.telefono);
-          setSelectedCargo(empleado.idRol);
-          setSelectedTipoDocumento(empleado.idTipoDoc);
-          setSelectedSucursal(empleado.idSucursal);
-          console.log(response.data);
-        })
-        .catch(error => console.error(error));
-    }, [documento]);
+    axios.get(`http://localhost:8080/empleados/${documento}`)
+      .then(response => {
+        const empleado = response.data;
+        setNombre(empleado.nombre);
+        setApellido(empleado.apellido);
+        setEmail(empleado.email);
+        setTelefono(empleado.telefono);
+        setSelectedCargo(empleado.idRol);
+        setSelectedTipoDocumento(empleado.idTipoDoc);
+        setSelectedSucursal(empleado.idSucursal);
+         
+        setOriginalCargo(empleado.idRol);
+        setOriginalTipoDocumento(empleado.idTipoDoc);
+        setOriginalSucursal(empleado.idSucursal);
+        console.log(response.data);
+      })
+      .catch(error => console.error(error));
+  }, [documento]);
 
   useEffect(() => {
     axios.get('http://localhost:8080/tipodocumento')
@@ -53,6 +62,7 @@ export function EditarEmpleado() {
         console.error('Hubo un error al obtener los tipos de documento: ', error);
       });
   }, []);
+
   useEffect(() => {
     axios.get('http://localhost:8080/sucursales')
       .then(response => {
@@ -66,6 +76,7 @@ export function EditarEmpleado() {
         console.error('Hubo un error al obtener las sucursales: ', error);
       });
   }, []);
+
   useEffect(() => {
     axios.get('http://localhost:8080/cargo')
       .then(response => {
@@ -82,30 +93,27 @@ export function EditarEmpleado() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Cargo: " + selectedCargo);
-    console.log("Tipo documento: " + selectedTipoDocumento);
-    console.log("Sucursal: " + sucursal);
+    console.log("Nombre: ", nombre);
+    console.log("Apellido: ", apellido);
+    console.log("Email: ", email);
+    console.log("Telefono: ", telefono);
+    console.log("Cargo: ", selectedCargo);
+    console.log("Tipo documento: ", selectedTipoDocumento);
+    console.log("Sucursal: ", selectedSucursal);
     axios.patch(`http://localhost:8080/empleados/${documento}`, {
-        nombre: nombre,
-        apellido: apellido,
-        email: email,
-        telefono: telefono,
-        idRol:{ 
-          idRol: selectedCargo
-        },
-        idTipoDoc:{
-          idTipoDoc: selectedTipoDocumento
-        },
-        idSucursal: {
-          idSucursal: selectedSucursal
-        }
-    })
+      nombre: nombre,
+      apellido: apellido,
+      email: email,
+      telefono: telefono,
+      idRol: selectedCargo,
+      idTipoDoc: selectedTipoDocumento,
+      idSucursal: selectedSucursal
+    }
+    )
     .then(response => {
-        // Haz algo con la respuesta, por ejemplo, redirige al usuario a la página de inicio
         navigate(`/sucursales/${idSucursal}/empleados`);
       })
     .catch(error => {
-      // Maneja cualquier error que pueda ocurrir
       console.error('Hubo un error al actualizar la sucursal:', error);
     });
   };
@@ -151,11 +159,11 @@ export function EditarEmpleado() {
               
               <select 
               type="text" 
-              value={selectedCargo} 
+              value={selectedCargo ? selectedCargo.idRol : ''}
               onChange={e =>
                {
                 console.log(e.target.value);
-                setSelectedCargo(e.target.value)}}>
+                setSelectedCargo(cargo.find(c => c.idRol === parseInt(e.target.value)));}}>
                 <option value="" disabled>Selecciona un cargo</option>
               {cargo.map(cargo => (
                 <option key={cargo.idRol} value={cargo.idRol}>{cargo.nombreRol}</option>
@@ -166,41 +174,32 @@ export function EditarEmpleado() {
             <label>Tipo documento:
               <select 
               type="text" 
-              value={selectedTipoDocumento} 
+              value={selectedTipoDocumento ? selectedTipoDocumento.idTipoDoc : ''}
               onChange={e => {
                 console.log(e.target.value);
-                setSelectedTipoDocumento(e.target.value)}}>
-                
+                setSelectedTipoDocumento(tipoDocumento.find(tipo => tipo.idTipoDoc === parseInt(e.target.value)));}}>
+                <option value="" disabled>Selecciona un Tipo de documento</option>
               {tipoDocumento.map(tipo => (
                 <option key={tipo.idTipoDoc} value={tipo.idTipoDoc}>{tipo.nombreTipoDoc}</option>
               ))}
               </select>
             </label>
 
-            {/* <label>Sucursal:
-              <input 
-              type="text" 
-              value={idSucursal} 
-              onChange={e => {
-                console.log(e.target.value);
-                setSucursal(e.target.value);
-              }} />
-            </label> */}
-              <label>Sucursal:
-              
+            <label>Sucursal:
               <select 
               type="text" 
-              value={selectedSucursal} 
+              value={selectedSucursal ? selectedSucursal.idSucursal : ''}
               onChange={e =>
                {
                 console.log(e.target.value);
-                setSelectedSucursal(e.target.value)}}>
+                setSelectedSucursal(sucursal.find(sucursal => sucursal.idSucursal === parseInt(e.target.value)));}}>
                 <option value="" disabled>Selecciona una sucursal</option>
               {sucursal.map(sucursal => (
                 <option key={sucursal.idSucursal} value={sucursal.idSucursal}>{sucursal.nombreSucursal}</option>
               ))}
               </select>
             </label>
+            
             <div className='form-modificar'>
               <button className="form-button-guardar" type="submit">Guardar cambios</button>
               <button className="form-button-cancelar" onClick={handleCancel} type="button">Cancelar</button>
