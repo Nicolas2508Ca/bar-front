@@ -127,38 +127,43 @@ export function EditarEmpleado() {
         <h1 className='editar-empleado-titulo'>Editar Empleado</h1>
         <form onSubmit={handleSubmit}>
 
-            <label>Nombre:
+            <label>Nombre: <span class="required">*</span>
               <input 
               type="text" 
+              required
               value={nombre} 
               onChange={e => setNombre(e.target.value)} />
             </label>
 
-            <label>Apellido:
+            <label>Apellido: <span class="required">*</span>
               <input 
               type="text" 
+              required
               value={apellido} 
               onChange={e => setApellido(e.target.value)} />
             </label>
 
-            <label>Email:
+            <label>Email: <span class="required">*</span>
               <input 
               type="email" 
+              required
               value={email} 
               onChange={e => setEmail(e.target.value)} />
             </label>
 
-            <label>Telefono:
+            <label>Telefono: <span class="required">*</span>
               <input 
               type="text" 
+              required
               value={telefono} 
               onChange={e => setTelefono(e.target.value)} />
             </label>
 
-            <label>Cargo:
+            <label>Cargo: <span class="required">*</span>
               
               <select 
               type="text" 
+              required
               value={selectedCargo ? selectedCargo.idRol : ''}
               onChange={e =>
                {
@@ -171,9 +176,10 @@ export function EditarEmpleado() {
               </select>
             </label>
 
-            <label>Tipo documento:
+            <label>Tipo documento: <span class="required">*</span>
               <select 
               type="text" 
+              required
               value={selectedTipoDocumento ? selectedTipoDocumento.idTipoDoc : ''}
               onChange={e => {
                 console.log(e.target.value);
@@ -185,9 +191,10 @@ export function EditarEmpleado() {
               </select>
             </label>
 
-            <label>Sucursal:
+            <label>Sucursal: <span class="required">*</span>
               <select 
               type="text" 
+              required
               value={selectedSucursal ? selectedSucursal.idSucursal : ''}
               onChange={e =>
                {
