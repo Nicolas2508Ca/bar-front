@@ -25,7 +25,7 @@ export function HomeMesero(){
     }, []);
 
     const TomarOrden = () => {
-        navigate('/HomeMesero/TomarOrden');
+        navigate('/HomeMesero/TomarOrden', { state: location.state});
     }
     
     return(

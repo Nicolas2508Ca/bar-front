@@ -1,11 +1,12 @@
 import "../TomarOrden/TomarOrden.css"
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Header } from '../../Header/Header';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export function TomarOrden(){
-
+    const location = useLocation();
+    const { documentoEmpleado } = location.state || {};
     const [productos, setProductos] = useState([]);
     const [orden, setOrden] = useState([]);
 
