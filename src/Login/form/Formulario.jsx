@@ -31,7 +31,7 @@ export function Formulario({setUser}){
         .then(response => {
             const{ mensaje, sucursal, documentoEmpleado } = response.data
             console.log("Recibe respuesta: ");
-            console.log(sucursal)
+            console.log(response.data)
             if (mensaje === "Inicio de sesión exitoso admin") {                
                 navigate('/home', { state: { sucursal, documentoEmpleado}}); // Redirige a la página de inicio si la respuesta es exitosa
             } else {

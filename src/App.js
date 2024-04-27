@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Formulario/>}></Route>
         <Route path='/HomeMesero' element={<HomeMesero/>}></Route>
-        <Route path='/HomeMesero/TomarOrden' element={<TomarOrden/>}></Route>
+        <Route path='/HomeMesero/:idSucursal/TomarOrden/:idMesa' element={<TomarOrden/>}></Route>
         <Route path='/Home' element={<Home/>}></Route>
         <Route path='/Home/CrearSucursal' element={<CrearSucursal/>}></Route>
         <Route path='/Home/EditarSucursal/:id' element={<EditarSucursal/>}></Route>

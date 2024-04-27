@@ -8,9 +8,12 @@ export function HomeMesero(){
     const location = useLocation();
     const { state } = location;
     const { sucursal, documentoEmpleado } = state || {};
+
     const navigate = useNavigate();
     const [mesas, setMesas] = useState([]);
     const [error, setError] = useState(null);
+
+
     useEffect(() => {
         axios.get(`http://localhost:8080/mesas/${sucursal.idSucursal}`)
             .then(response => {
@@ -24,9 +27,10 @@ export function HomeMesero(){
         )
     }, []);
 
-    const TomarOrden = () => {
-        navigate('/HomeMesero/TomarOrden');
+    const TomarOrden = (mesa) => {
+        navigate(`/HomeMesero/${sucursal.idSucursal}/TomarOrden/${mesa.idMesa}`);
     }
+    
     
     return(
         <section>
@@ -37,7 +41,7 @@ export function HomeMesero(){
                     <div className="mesas">
                         {error && <p>{error}</p>}
                         {mesas.map((mesa, index) => (
-                            <div className="mesas-box" key={index} onClick={TomarOrden}>
+                            <div className="mesas-box" key={index} onClick={() => TomarOrden(mesa)}>
                                 <img className="mesas-sucursal" src="mesa-de-comedor.png" alt={`Mesa ${index + 1}`} />
                                 <p className="mesa-nombre">{mesa.nombreMesa}</p>
                             </div>
