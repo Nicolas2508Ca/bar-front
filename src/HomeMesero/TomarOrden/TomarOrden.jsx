@@ -1,4 +1,5 @@
 import "../TomarOrden/TomarOrden.css"
+import { useNavigate } from 'react-router-dom';
 import { Header } from '../../Header/Header';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -6,6 +7,7 @@ import { useParams } from 'react-router-dom';
 
 export function TomarOrden(){
 
+    const [productos, setProductos] = useState([]);
     const [orden, setOrden] = useState([]);
     const [inventario, setInventario] = useState([]);
     const { idSucursal } = useParams();

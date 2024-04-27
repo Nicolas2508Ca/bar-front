@@ -1,0 +1,33 @@
+/* Estilos para la tabla */
+.table-container {
+    width: 80%;
+    margin: 0 auto; /* Esto centra el contenedor */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Estilos para las celdas de la tabla */
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Estilos para las filas impares */
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para el encabezado de la tabla */
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Estilos para el hover */
+tr:hover {
+    background-color: #ddd;
+}

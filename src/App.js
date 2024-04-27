@@ -10,6 +10,8 @@ import { CrearEmpleado } from './Home/VerEditarEmpleados/CrearEmpleado/CrearEmpl
 import { EditarEmpleado } from './Home/VerEditarEmpleados/EditarEmpleado/EditarEmpleado';
 import { HomeMesero } from './HomeMesero/HomeMesero';
 import { TomarOrden } from './HomeMesero/TomarOrden/TomarOrden'
+import { HomeCajero } from './HomeCajero/HomeCajero';
+import { Inventario } from './HomeCajero/inventario/Inventario';
 
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
         <Route path='/sucursales/:idSucursal/empleados' element={<VerEditarEmpleados/>}></Route>
         <Route path='/sucursales/:idSucursal/empleados/CrearEmpleado' element={<CrearEmpleado/>}></Route>
         <Route path='/sucursales/:idSucursal/empleados/EditarEmpleado/:documento' element={<EditarEmpleado/>}></Route>
+        <Route path='/HomeCajero' element={<HomeCajero/>}></Route>
+        <Route path='/HomeCajero/inventario' element={<Inventario/>}></Route>
       </Routes>
     </div>
   );
