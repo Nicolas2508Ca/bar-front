@@ -12,6 +12,7 @@ import { HomeMesero } from './HomeMesero/HomeMesero';
 import { TomarOrden } from './HomeMesero/TomarOrden/TomarOrden'
 import { HomeCajero } from './HomeCajero/HomeCajero';
 import { Inventario } from './HomeCajero/inventario/Inventario';
+import { Orden } from './HomeCajero/Orden/Orden';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
         <Route path='/sucursales/:idSucursal/empleados/EditarEmpleado/:documento' element={<EditarEmpleado/>}></Route>
         <Route path='/HomeCajero' element={<HomeCajero/>}></Route>
         <Route path='/HomeCajero/inventario' element={<Inventario/>}></Route>
+        <Route path='/HomeCajero/Orden' element={<Orden />}></Route>
       </Routes>
     </div>
   );

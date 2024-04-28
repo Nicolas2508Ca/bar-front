@@ -1,0 +1,25 @@
+/* Estilos para la tabla */
+.table-container {
+    margin: 20px auto;
+    width: 80%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilos para el botón de pagar */
+.pagar-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.pagar-btn:hover {
+    background-color: #45a049;
+}
