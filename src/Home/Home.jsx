@@ -86,12 +86,12 @@ export function Home() {
                                 <button 
                                 className='home_tabla-editar' 
                                 onClick={() => handleEdit(sucursal)}>
-                                    <img src='/lapiz.svg'/>
+                                    <img src='lapiz.svg'/>
                                 </button>
                                 <button 
                                 className='home_tabla-eliminar'
                                 onClick={() => handleDelete(sucursal.idSucursal)}>
-                                    <img src='/eliminar.svg'/>
+                                    <img src='eliminar.svg'/>
                                 </button>
                                 <button 
                                 className='home_tabla-empleados'

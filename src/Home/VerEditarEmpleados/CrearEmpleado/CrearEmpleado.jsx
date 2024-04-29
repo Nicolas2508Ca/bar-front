@@ -21,11 +21,6 @@ export function CrearEmpleado() {
   const [sucursalId, setSucursalId] = useState('');
   const { idSucursal } = useParams();
 
-  const generarContrasenaTemporal = () => {
-    // Genera una contraseña temporal de 8 caracteres
-    return Math.random().toString(36).slice(-8);
-  };
-
   useEffect(() => {
     axios.get('http://localhost:8080/tipodocumento')
       .then(response => {
@@ -70,7 +65,7 @@ export function CrearEmpleado() {
       apellido: apellido,
       email: email,
       telefono: telefono,
-      contrasenia: generarContrasenaTemporal(),
+      contrasenia: 1234,
       idRol: {
         idRol: selectedCargo
       }, // Aquí deberías usar selectedCargo

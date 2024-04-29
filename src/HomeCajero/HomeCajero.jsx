@@ -14,9 +14,8 @@ export function HomeCajero() {
     const [ error, setError] = useState(null);
     
     useEffect(() => {
-        axios.get(`http://localhost:8080/mesas/${sucursal.idSucursal}`)
+        axios.get(`http://localhost:8080/mesas/cajero/${sucursal.idSucursal}`)
             .then(response => {
-                console.log(response.data)
                 setMesas(response.data)
             })
             .catch(error => 
@@ -30,6 +29,12 @@ export function HomeCajero() {
         navigate('/HomeCajero/inventario', { state: { sucursal }});
     };
 
+    const irOrden = (idMesa) => {
+        if (idMesa) {
+            navigate('/HomeCajero/Orden', { state: { idMesa, sucursal } });
+        }
+    }
+
     return (
         <section>
     <Header />
@@ -41,7 +46,7 @@ export function HomeCajero() {
         <div className="mesas">
             {error && <p>{error}</p>}
             {mesas.map((mesa, index) => (
-                <div className="mesas-box" key={index}>
+                <div className="mesas-box" key={index} onClick={() => mesa.idMesa && irOrden(mesa.idMesa)}>
                     <img className="mesas-sucursal" src="mesa-de-comedor.png" alt={`Mesa ${index + 1}`} />
                     <p className="mesa-nombre">{mesa.nombreMesa}</p>
                 </div>
