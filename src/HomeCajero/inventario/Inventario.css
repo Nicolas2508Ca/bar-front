@@ -10,8 +10,7 @@ table {
 }
 
 /* Estilos para las celdas de la tabla */
-th, td {
-    border: 1px solid #dddddd;
+th, td {    
     text-align: left;
     padding: 8px;
 }
@@ -23,11 +22,13 @@ tr:nth-child(odd) {
 
 /* Estilos para el encabezado de la tabla */
 th {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #A1CDF9;
+    color: black;
+    border: 1px solid black;
 }
 
 /* Estilos para el hover */
 tr:hover {
     background-color: #ddd;
+    
 }

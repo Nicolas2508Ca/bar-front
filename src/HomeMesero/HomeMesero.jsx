@@ -27,13 +27,8 @@ export function HomeMesero(){
         )
     }, []);
 
-<<<<<<< HEAD
     const TomarOrden = (mesa) => {
         navigate(`/HomeMesero/${sucursal.idSucursal}/TomarOrden/${mesa.idMesa}`);
-=======
-    const TomarOrden = () => {
-        navigate('/HomeMesero/TomarOrden', { state: location.state});
->>>>>>> 922800050912ebfbb0e1e181aa394bca54d72ba8
     }
     
     
