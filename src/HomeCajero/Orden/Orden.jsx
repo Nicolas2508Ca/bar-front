@@ -21,9 +21,10 @@ export function Orden() {
             mesa: {
                 idMesa: idMesa
             },
-            estadoOrden:{
+            idEstado: {
                 idEstado: 2
             }
+            
         })
             .then(response => {
                 navigate(`/HomeCajero`, { state: {sucursal} });

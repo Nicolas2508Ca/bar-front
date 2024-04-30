@@ -1,18 +1,22 @@
 import "../TomarOrden/TomarOrden.css"
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Header } from '../../Header/Header';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 export function TomarOrden(){
-
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { state } = location;
+    const { documentoEmpleado, sucursal } = state || {};
+    console.log(documentoEmpleado);
     const [productos, setProductos] = useState([]);
-    const [orden, setOrden] = useState([]);
+    const [detallesOrden, setDetallesOrden] = useState([]);
     const [inventario, setInventario] = useState([]);
     const { idSucursal } = useParams();
     const { idMesa } = useParams();
-
+    
     useEffect(() => {
         axios.get(`http://localhost:8080/inventario/${idSucursal}`)
             .then(response => {
@@ -29,7 +33,19 @@ export function TomarOrden(){
             });
     }, [idSucursal]);
 
-    const agregarAOrden = (item) => {
+    const agregarAOrden = (item, cantidad) => {
+        // Agregar un nuevo detalle a detallesOrden
+        const nuevoDetalle = {
+            producto: {
+                idProducto: item.producto.idProducto,
+                nombreProducto: item.producto.nombreProducto,
+                precioProducto: item.producto.precioProducto
+            },
+            cantidad: cantidad
+        };
+
+        setDetallesOrden([...detallesOrden, nuevoDetalle]);
+
         // Disminuir la cantidad en el inventario
         const nuevoInventario = inventario.map(i => {
             if (i.idInventario === item.idInventario) {
@@ -44,23 +60,6 @@ export function TomarOrden(){
                 console.log('Cantidad actualizada en la base de datos');
                 // Actualizar el estado del inventario después de que la petición PATCH se haya completado con éxito
                 setInventario(nuevoInventario);
-            
-                // Agregar el producto a la orden o incrementar su cantidad si ya está en la orden
-                const productoEnOrden = orden.find(o => o.idInventario === item.idInventario);
-                let nuevaOrden;
-                if (productoEnOrden) {
-                    // Si el producto ya está en la orden, incrementar la cantidad
-                    nuevaOrden = orden.map(o => {
-                        if (o.idInventario === item.idInventario) {
-                            return { ...o, cantidad: o.cantidad + 1, idMesa: idMesa };
-                        }
-                        return o;
-                    });
-                } else {
-                    // Si el producto no está en la orden, agregarlo con una cantidad de 1
-                    nuevaOrden = [...orden, { ...item, cantidad: 1, Mesa: idMesa }];
-                }
-                setOrden(nuevaOrden);
             })
             .catch(error => {
                 console.error(error);
@@ -69,25 +68,49 @@ export function TomarOrden(){
             });
     };
 
-    const subtotal = orden.reduce((total, item) => {
-        const cantidad = Number(item.cantidad);
-        const precioProducto = Number(item.producto.precioProducto);
+    const subtotal = detallesOrden.reduce((total, detalle) => {
+        const cantidad = Number(detalle.cantidad);
+        const precioProducto = Number(detalle.producto.precioProducto);
     
         if (isNaN(cantidad) || isNaN(precioProducto)) {
-            console.error(`Cantidad o precio del producto no es un número: ${item.cantidad}, ${item.producto.precioProducto}`);
+            console.error(`Cantidad o precio del producto no es un número: ${detalle.cantidad}, ${detalle.producto.precioProducto}`);
             return total;
         }
     
         return total + cantidad * precioProducto;
     }, 0);
 
-    const crearOrden = (orden) => {
-        console.log(orden[0]);
-        axios.post('http://localhost:8080/ordenes/crear', orden[0])
+    const crearOrden = () => {
+        const requestBody = {
+            mesa: {
+                idMesa: idMesa,
+                idEstadoMesa: {
+                    idEstadoMesa: 2
+                }
+            },
+            sucursal: {
+                idSucursal: idSucursal
+            },
+            estadoOrden: {
+                idEstado: 1
+            },
+            empleado: {
+                documento: documentoEmpleado
+            },
+            detalles: detallesOrden.map(detalle => ({
+                producto: {
+                    idProducto: detalle.producto.idProducto
+                },
+                cantidad: detalle.cantidad
+            }))
+        };
+        
+        axios.post('http://localhost:8080/ordenes/crear', requestBody)
             .then(response => {
                 console.log('Orden creada con éxito');
                 // Aquí puedes manejar la respuesta.
                 // Por ejemplo, podrías actualizar el estado de tu componente con la nueva orden.
+                navigate('/HomeMesero', { state: { sucursal, documentoEmpleado}});
             })
             .catch(error => {
                 console.error(error);
@@ -95,7 +118,7 @@ export function TomarOrden(){
                 // Por ejemplo, podrías mostrar un mensaje de error al usuario.
             });
     };
-
+    
     return(
         <section>
             <Header />
@@ -117,9 +140,7 @@ export function TomarOrden(){
                                 <td>{ item.producto.nombreProducto }</td>
                                 <td>{ item.producto.precioProducto }</td>
                                 <td>{ item.cantidad }</td>
-                                <td><button  onClick={() => {
-                                    console.log("Añadir producto a la orden");
-                                    agregarAOrden(item)}}>+</button></td>
+                                <td><button onClick={() => agregarAOrden(item, 1)}>+</button></td>
                             </tr>
                         ))}  
                         </tbody>
@@ -138,21 +159,21 @@ export function TomarOrden(){
                             </tr>
                         </thead>
                         <tbody>
-                            {Object.values(orden).map((item, index) => (
+                            {detallesOrden.map((detalle, index) => (
                                 <tr key={index}>
-                                    <td>{item.producto.nombreProducto}</td>
-                                    <td>{item.producto.precioProducto}</td>
-                                    <td>{item.cantidad}</td>
+                                    <td>{detalle.producto.nombreProducto}</td>
+                                    <td>{detalle.producto.precioProducto}</td>
+                                    <td>{detalle.cantidad}</td>
                                     <td><input type="text"/></td>
-                                    <td>{item.producto.precioProducto * item.cantidad}</td>
+                                    <td>{detalle.producto.precioProducto * detalle.cantidad}</td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                     <h2>Total a pagar: {subtotal}</h2>
-                    <button onClick={() => crearOrden(orden)}>Crear orden</button>
+                    <button onClick={crearOrden}>Crear orden</button>
                 </div>
             </div>
         </section>
-    )
+    );
 }

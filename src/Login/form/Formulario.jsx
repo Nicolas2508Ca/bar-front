@@ -31,18 +31,12 @@ export function Formulario({setUser}){
         .then(response => {
             const{ mensaje, sucursal, documentoEmpleado } = response.data
             console.log("Recibe respuesta: ");
-<<<<<<< HEAD
-            console.log(response.data)
-            if (mensaje === "Inicio de sesión exitoso admin") {                
-                navigate('/home', { state: { sucursal, documentoEmpleado}}); // Redirige a la página de inicio si la respuesta es exitosa
-=======
             if (mensaje === "Inicio de sesión exitoso admin") {
                 navigate('/home', { state: { sucursal, documentoEmpleado } });
             } else if (mensaje === "Inicio de sesión exitoso mesero") {
                 navigate('/HomeMesero', { state: { sucursal, documentoEmpleado } });
             } else if (mensaje === "Inicio de sesión exitoso cajero") {
                 navigate('/HomeCajero', { state: { sucursal, documentoEmpleado}});
->>>>>>> 922800050912ebfbb0e1e181aa394bca54d72ba8
             } else {
                 setLoginMessage(mensaje);
             }
