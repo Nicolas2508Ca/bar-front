@@ -1,4 +1,11 @@
 /* Estilos para la tabla */
+.orden-titulo{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-family: "Roboto Slab", serif;
+    margin-bottom: 1rem;
+}
+
 .table-container {
     margin: 20px auto;
     width: 80%;
@@ -11,15 +18,30 @@ table {
 
 /* Estilos para el botón de pagar */
 .pagar-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
+    background-color: #A1CDF9;
+    color: black;
+    font-size: 1rem;
+    font-family: "Roboto Slab", serif;
+    padding: 5px 20px;
+    border: 1px solid black;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
 }
 
+.total-a-pagar{
+    font-size: 1.5rem;
+    font-family: "Roboto Slab", serif;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    
+}
+
+.info-orden-total{
+    text-align: center;
+}
+
 .pagar-btn:hover {
-    background-color: #45a049;
+    background-color: rgb(236, 84, 84);;
 }

@@ -47,7 +47,7 @@ export function Orden() {
     return (
         <section>
             <Header />
-            <div>
+            <div className="orden-titulo">
                 <h2>Tu orden es la # {orden.idOrden}</h2>
             </div>
             <div className="table-container">
@@ -69,8 +69,8 @@ export function Orden() {
                         ))}
                     </tbody>
                 </table>
-                <div>
-                    <p>Total a pagar: {orden.totalOrden}</p>
+                <div className="info-orden-total">
+                    <p className="total-a-pagar">Total a pagar: {orden.totalOrden}</p>
                     {!pagado && (
                         <button className="pagar-btn" onClick={handlePagarOrden}>
                             Pagar Orden

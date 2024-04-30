@@ -6,25 +6,27 @@
 
 .sucursal-titulo{
     margin-top: 2rem;
-    font-size: 1.5em;
+    font-size: 2rem;
     font-family: "Roboto Slab", serif;
+    margin-bottom: 2rem;
 }
 
 .home-mesero{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
+    border: 1px solid black;
+    background-color: aliceblue;
 }
 
 .mesas{
     display: flex;
     flex-wrap: wrap;
    justify-content: space-around;
-   margin-top: 2rem;
 }
 
 .mesas-box{
-    width: 15%;
+    width: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,10 +34,12 @@
     background-color: #A1CDF9;
     cursor: pointer;
     margin-bottom: 2rem;
+    margin: 2rem;
+
 }
 
 .mesas-sucursal{
-    width: 60%;     
+    width: 100px;     
 }
 
 .mesa-nombre{

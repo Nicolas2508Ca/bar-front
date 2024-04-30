@@ -1,20 +1,23 @@
-.home-sucursal {
+.home-sucursal-cajero {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .sucursal-titulo {
     margin-top: 2rem;
-    font-size: 1.5em;
+    font-size: 2rem;
     font-family: "Roboto Slab", serif;
 }
 
 .alimentar-button {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     font-size: 1em;
     font-family: "Roboto Slab", serif;
     background-color: #A1CDF9;
-    border: none;
+    border: 1px solid black;
     cursor: pointer;
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -35,4 +38,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    background-color: white;
+    border: 1px solid black;
 }

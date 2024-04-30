@@ -58,7 +58,7 @@ body {
 
 .home_tabla-acciones{
     display: flex;
-    justify-content: center;
+    
 }
 
 .home_tabla-editar{
@@ -67,6 +67,7 @@ body {
     margin-top: 2%;
     margin-bottom: 2%;
     cursor: pointer;
+    border: 1px solid black;
     
 }
 

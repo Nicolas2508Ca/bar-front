@@ -36,9 +36,10 @@ export function HomeCajero() {
     }
 
     return (
-        <section>
+    <section>
     <Header />
     <div className="home-sucursal">
+    <div className="home-sucursal-cajero">
         <h1 className="sucursal-titulo">{sucursal.nombreSucursal}</h1>
         <button className="alimentar-button" onClick={irInventario}>Alimentar inventario</button>
     </div>
@@ -52,6 +53,7 @@ export function HomeCajero() {
                 </div>
             ))}
         </div>
+    </div>
     </div>
 </section>
 
