@@ -58,7 +58,7 @@ body {
 
 .home_tabla-acciones{
     display: flex;
-    
+    justify-content: center;
 }
 
 .home_tabla-editar{

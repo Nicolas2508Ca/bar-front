@@ -11,6 +11,7 @@ export function Inventario(){
     const {sucursal} = location.state || {};
     const [existencias, setExistencias] = useState([]);
     const [error, setError] = useState(null)
+
     useEffect(() => {
         axios.get(`http://localhost:8080/inventario/${sucursal.idSucursal}`)
             .then(response => {
@@ -22,13 +23,37 @@ export function Inventario(){
             })
     }, [])
 
+    const actualizarInventario = (existencia) => {
+        const cantidadIngresada = parseInt(document.getElementById(`cantidad-${existencia.idInventario}`).value) || 0;
+        const cantidadActual = existencia.cantidad;
+        const nuevaCantidad = cantidadActual + cantidadIngresada;
+
+        axios.patch(`http://localhost:8080/inventario/${existencia.idInventario}`, { cantidad: nuevaCantidad })
+            .then(response => {
+                console.log('Inventario actualizado con éxito');
+
+                // Actualiza el estado de existencias con la nueva cantidad.
+                setExistencias(existencias.map(item => {
+                    if (item.idInventario === existencia.idInventario) {
+                        return { ...item, cantidad: nuevaCantidad };
+                    } else {
+                        return item;
+                    }
+                }));
+            })
+            .catch(error => {
+                console.error(error);
+                // Aquí puedes manejar los errores.
+                // Por ejemplo, podrías mostrar un mensaje de error al usuario.
+            });
+    };
+
     return(
         <section>
 
         <Header/>
         <div className="table-container">
-            <h2>Productos en Existencia por Sucursal</h2>
-            <h2>Lista de Productos</h2>
+            <h2 className="titulo-inventario">Productos en Existencia por Sucursal</h2>
             <table>
                 <thead>
                     <tr>
@@ -39,20 +64,13 @@ export function Inventario(){
                 </thead>
                 <tbody>
                     {existencias.map(existencia => (
-                        <tr key={existencia.idExistenciasSucursal}>
+                        <tr key={existencia.idInventario}>
                             <td>{existencia.producto.nombreProducto}</td>
                             <td>{existencia.cantidad}</td>
-                            <td><button 
-                                className='home_tabla-editar' 
-                                >
-                                    <img src='/lapiz.svg'/>
-                                </button>
-                                <button 
-                                className='home_tabla-eliminar'
-                                >
-                                    <img src='/eliminar.svg'/>
-                                </button>
-                                </td>
+                            <td>
+                                <input type="number" min="0" id={`cantidad-${existencia.idInventario}`} />
+                                <button className="actualizar-inventario" onClick={() => actualizarInventario(existencia)}>Añadir al inventario</button>
+                            </td>
                         </tr>
                         
                     ))}

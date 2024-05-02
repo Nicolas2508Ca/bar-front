@@ -3,6 +3,13 @@
     width: 80%;
     margin: 0 auto; /* Esto centra el contenedor */
 }
+
+.titulo-inventario{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    font-family: "Roboto Slab", serif;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -12,7 +19,7 @@ table {
 
 /* Estilos para las celdas de la tabla */
 th, td {    
-    text-align: left;
+    text-align: center;
     padding: 8px;
 }
 
@@ -36,4 +43,13 @@ th {
 tr:hover {
     background-color: #ddd;
     
+}
+
+.actualizar-inventario{
+    margin-left: 20px;
+    font-size: 0.9rem;
+    font-family: "Roboto Slab", serif;
+    background-color: #A1CDF9;
+    border: 1px solid black;
+    padding: 1%;
 }
