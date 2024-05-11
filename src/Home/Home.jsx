@@ -59,6 +59,10 @@ export function Home() {
         navigate(`/sucursales/${idSucursal}/empleados`);
     };
 
+    const handleViewTables = (sucursal) => {
+        navigate(`/sucursales/${sucursal.idSucursal}/mesas`, { state: { sucursal } });
+    };
+
     return (
         <section className="home">
             <Header />
@@ -97,6 +101,11 @@ export function Home() {
                                 className='home_tabla-empleados'
                                 onClick={() => handleViewEmployees(sucursal.idSucursal)}>
                                     Ver/Editar empleados
+                                </button>
+                                <button 
+                                className='home_tabla-empleados'
+                                onClick={() => handleViewTables(sucursal)}>
+                                    Ver/Editar mesas
                                 </button>
                             </td>
                         </tr>

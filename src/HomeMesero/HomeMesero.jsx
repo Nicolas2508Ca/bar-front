@@ -1,5 +1,5 @@
 import "../HomeMesero/HomeMesero.css"
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Header } from '../Header/Header';
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -42,7 +42,7 @@ export function HomeMesero(){
                         {error && <p>{error}</p>}
                         {mesas.map((mesa, index) => (
                             <div className="mesas-box" key={index} onClick={() => TomarOrden(mesa)}>
-                                <img className="mesas-sucursal" src="mesa-de-comedor.png" alt={`Mesa ${index + 1}`} />
+                                <img className="mesas-sucursal" src='mesa-de-comedor.png' alt={`Mesa ${index + 1}`} />
                                 <p className="mesa-nombre">{mesa.nombreMesa}</p>
                             </div>
                         ))}

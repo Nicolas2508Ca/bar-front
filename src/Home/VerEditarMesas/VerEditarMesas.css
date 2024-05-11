@@ -1,0 +1,39 @@
+.home-sucursal-titulo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.boton-crear{
+    background-color: rgb(106, 224, 101);
+    color: black;
+    font-size: medium;
+    padding: 0.5rem;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 2rem 0;
+}
+
+.acciones-mesa{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.mesas-box:hover {
+    border: none;
+}
+
+.mesas-box{
+cursor: auto;
+}
+
+.boton-sucursales{
+    background-color: rgb(172, 170, 170);
+    color: black;
+    font-size: medium;
+    padding: 0.5rem;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 2rem 0;
+    margin-right: 2rem;
+}
