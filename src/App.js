@@ -16,6 +16,8 @@ import { Orden } from './HomeCajero/Orden/Orden';
 import { VerEditarMesas } from './Home/VerEditarMesas/VerEditarMesas';
 import { CrearMesa } from './Home/VerEditarMesas/CrearMesa/CrearMesa';
 import { EditarMesa } from './Home/VerEditarMesas/EditarMesa/EditarMesa'
+import { CrearProducto } from './Home/CrearProducto/CrearProducto'
+import { EditarProducto } from './Home/EditarProducto/EditarProducto'
 
 function App() {
 
@@ -24,8 +26,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Formulario/>}></Route>
         <Route path='/HomeMesero' element={<HomeMesero/>}></Route>
+        <Route path='/Home/EditarProducto/:id' element={<EditarProducto/>}></Route>
         <Route path='/HomeMesero/:idSucursal/TomarOrden/:idMesa' element={<TomarOrden/>}></Route>
         <Route path='/Home' element={<Home/>}></Route>
+        <Route path='/Home/CrearProducto' element={<CrearProducto/>}></Route>
         <Route path='/Home/CrearSucursal' element={<CrearSucursal/>}></Route>
         <Route path='/Home/EditarSucursal/:id' element={<EditarSucursal/>}></Route>
         <Route path='/sucursales/:idSucursal/empleados' element={<VerEditarEmpleados/>}></Route>
