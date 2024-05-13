@@ -18,6 +18,8 @@ import { CrearMesa } from './Home/VerEditarMesas/CrearMesa/CrearMesa';
 import { EditarMesa } from './Home/VerEditarMesas/EditarMesa/EditarMesa'
 import { CrearProducto } from './Home/CrearProducto/CrearProducto'
 import { EditarProducto } from './Home/EditarProducto/EditarProducto'
+import { GenerarReporte } from './Home/reporteSucursal/generarReporte';
+
 
 function App() {
 
@@ -41,6 +43,7 @@ function App() {
         <Route path='/HomeCajero' element={<HomeCajero/>}></Route>
         <Route path='/HomeCajero/inventario' element={<Inventario/>}></Route>
         <Route path='/HomeCajero/Orden' element={<Orden />}></Route>
+        <Route path='/Home/GenerarReporte' element={<GenerarReporte/>}></Route>
       </Routes>
     </div>
   );
