@@ -29,20 +29,26 @@ export function GenerarReporte() {
             console.error('Hubo un error al obtener las sucursales: ', error);
           });
       }, []);
-
+    
+      function ajustarFechaFinal(date) {
+        const fechaFinal = new Date(date);
+        fechaFinal.setHours(23, 59, 59, 999); // Establecer la hora a las 23:59:59.999
+        return fechaFinal;
+    }
+    
     const handleSubmit = (event) => {
         console.log('Ejecuta sumbit')
         event.preventDefault();
     
         // Formatea las fechas según el formato requerido (yyyy-MM-dd)
         const formattedFechaInicio = formatFecha(new Date(fechaInicio));
-        const formattedFechaFinal = formatFecha(new Date(fechaFinal));
-    
+        const formattedFechaFinal = formatFecha(ajustarFechaFinal(fechaFinal));
+      console.log(selectedSucursal.idSucursal)
         // Crea un objeto con los datos del reporte
         const reporteData = {
             fechaInicio: formattedFechaInicio,
             fechaFinal: formattedFechaFinal,
-            idSucursal: sucursal.idSucursal
+            idSucursal: selectedSucursal.idSucursal
         };
         
         
