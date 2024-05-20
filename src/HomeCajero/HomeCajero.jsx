@@ -40,7 +40,7 @@ export function HomeCajero() {
     <Header />
     <div className="home-sucursal">
     <div className="home-sucursal-cajero">
-        <h1 className="sucursal-titulo">{sucursal.nombreSucursal}</h1>
+        <h1 className="sucursal-titulo">{sucursal.nombreSucursal} - Mesas pendientes por cancelar cuenta</h1>
         <button className="alimentar-button" onClick={irInventario}>Alimentar inventario</button>
     </div>
     <div className="home-cajero">

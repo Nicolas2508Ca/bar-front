@@ -176,7 +176,7 @@ export function Home() {
                 {productos.map(producto => (
                         <tr key={producto.idProducto}>
                             <td>{producto.nombreProducto}</td>
-                            <td>{producto.precioProducto}</td>
+                            <td>${producto.precioProducto.toLocaleString('en-US')}</td>
                             <td className='home_tabla-acciones'>
                                 <button 
                                 className='home_tabla-editar' 

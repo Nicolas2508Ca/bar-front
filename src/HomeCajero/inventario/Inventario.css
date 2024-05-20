@@ -52,4 +52,5 @@ tr:hover {
     background-color: #A1CDF9;
     border: 1px solid black;
     padding: 1%;
+    cursor: pointer;
 }

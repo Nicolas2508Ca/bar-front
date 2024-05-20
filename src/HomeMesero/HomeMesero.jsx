@@ -36,7 +36,7 @@ export function HomeMesero(){
         <section>
             <Header />
             <div className="home-sucursal">
-                <h1 className="sucursal-titulo">{sucursal.nombreSucursal}</h1>
+                <h1 className="sucursal-titulo">{sucursal.nombreSucursal} - Mesas disponibles</h1>
                 <div className="home-mesero">
                     <div className="mesas">
                         {error && <p>{error}</p>}

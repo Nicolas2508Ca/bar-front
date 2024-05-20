@@ -19,6 +19,7 @@ import { EditarMesa } from './Home/VerEditarMesas/EditarMesa/EditarMesa'
 import { CrearProducto } from './Home/CrearProducto/CrearProducto'
 import { EditarProducto } from './Home/EditarProducto/EditarProducto'
 import { GenerarReporte } from './Home/reporteSucursal/generarReporte';
+import { CambiarContrasenia } from './CambiarContrasenia/CambiarContrasenia'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
   return (
     <div>
       <Routes>
+        <Route path='/CambiarContrasenia' element={<CambiarContrasenia/>}></Route>
         <Route path='/' element={<Formulario/>}></Route>
         <Route path='/HomeMesero' element={<HomeMesero/>}></Route>
         <Route path='/Home/EditarProducto/:id' element={<EditarProducto/>}></Route>

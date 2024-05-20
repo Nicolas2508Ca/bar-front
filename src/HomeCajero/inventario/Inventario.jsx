@@ -35,6 +35,7 @@ export function Inventario(){
                 // Actualiza el estado de existencias con la nueva cantidad.
                 setExistencias(existencias.map(item => {
                     if (item.idInventario === existencia.idInventario) {
+                        document.getElementById(`cantidad-${existencia.idInventario}`).value = "";
                         return { ...item, cantidad: nuevaCantidad };
                     } else {
                         return item;

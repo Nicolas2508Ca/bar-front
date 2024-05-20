@@ -33,6 +33,37 @@ export function TomarOrden(){
             });
     }, [idSucursal]);
 
+    const eliminarDeOrden = (index) => {
+        const detalleEliminado = detallesOrden[index];
+    
+        // Incrementar la cantidad en el inventario
+        const nuevoInventario = inventario.map(i => {
+            if (i.producto.idProducto === detalleEliminado.producto.idProducto) {
+                return { ...i, cantidad: i.cantidad + detalleEliminado.cantidad };
+            }
+            return i;
+        });
+    
+        // Actualizar la cantidad en la base de datos
+        const itemInventario = nuevoInventario.find(i => i.producto.idProducto === detalleEliminado.producto.idProducto);
+        axios.patch(`http://localhost:8080/inventario/${itemInventario.idInventario}`, { cantidad: itemInventario.cantidad })
+            .then(response => {
+                console.log('Cantidad actualizada en la base de datos');
+                // Actualizar el estado del inventario después de que la petición PATCH se haya completado con éxito
+                setInventario(nuevoInventario);
+            })
+            .catch(error => {
+                console.error(error);
+                // Aquí puedes manejar los errores.
+                // Por ejemplo, podrías mostrar un mensaje de error al usuario.
+            });
+    
+        // Eliminar el detalle de la orden
+        const nuevosDetalles = [...detallesOrden];
+        nuevosDetalles.splice(index, 1);
+        setDetallesOrden(nuevosDetalles);
+    };
+
     const agregarAOrden = (item, cantidad) => {
         // Agregar un nuevo detalle a detallesOrden
         const nuevoDetalle = {
@@ -154,7 +185,7 @@ export function TomarOrden(){
                                 <th>Producto</th>
                                 <th>Precio</th>
                                 <th>Cantidad</th>
-                                <th>Comentarios</th>
+                                <th>Eliminar</th>
                                 <th>Subtotal</th>
                             </tr>
                         </thead>
@@ -164,7 +195,7 @@ export function TomarOrden(){
                                     <td>{detalle.producto.nombreProducto}</td>
                                     <td>{detalle.producto.precioProducto}</td>
                                     <td>{detalle.cantidad}</td>
-                                    <td><input type="text"/></td>
+                                    <td><button onClick={() => eliminarDeOrden(index)}>Eliminar</button></td>
                                     <td>{detalle.producto.precioProducto * detalle.cantidad}</td>
                                 </tr>
                             ))}

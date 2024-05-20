@@ -23,7 +23,6 @@ export function Formulario({setUser}){
 
         axios.post('http://localhost:8080/login', null,{ 
             params: {
-
                 documento: identificacion,
                 contrasenia: contrasenia
             }, withCredentials: true
@@ -31,7 +30,10 @@ export function Formulario({setUser}){
         .then(response => {
             const{ mensaje, sucursal, documentoEmpleado } = response.data
             console.log("Recibe respuesta: ");
-            if (mensaje === "Inicio de sesión exitoso admin") {
+            if (contrasenia === '1234') {
+                // Redirigir al empleado a la página de cambio de contraseña
+                navigate('/CambiarContrasenia', { state: { sucursal, documentoEmpleado } });
+            } else if (mensaje === "Inicio de sesión exitoso admin") {
                 navigate('/home', { state: { sucursal, documentoEmpleado } });
             } else if (mensaje === "Inicio de sesión exitoso mesero") {
                 navigate('/HomeMesero', { state: { sucursal, documentoEmpleado } });
