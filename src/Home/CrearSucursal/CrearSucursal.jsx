@@ -30,7 +30,6 @@ export function CrearSucursal() {
   };
 
   return (
-    <div>
       <div className="crear-sucursal-container">
         <h2 className="crear-sucursal-title">Crear nueva sucursal</h2>
         <form className="crear-sucursal-form" onSubmit={handleSubmit}>
@@ -60,6 +59,5 @@ export function CrearSucursal() {
 
         </form>
       </div>
-    </div>
   );
 }

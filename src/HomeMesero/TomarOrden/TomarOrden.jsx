@@ -169,7 +169,7 @@ export function TomarOrden(){
                         {inventario.map(item => (
                             <tr key={item.idInventario}>
                                 <td>{ item.producto.nombreProducto }</td>
-                                <td>{ item.producto.precioProducto }</td>
+                                <td>${ item.producto.precioProducto.toLocaleString('en-US') }</td>
                                 <td>{ item.cantidad }</td>
                                 <td><button onClick={() => agregarAOrden(item, 1)}>+</button></td>
                             </tr>
@@ -183,25 +183,23 @@ export function TomarOrden(){
                         <thead>
                             <tr>
                                 <th>Producto</th>
-                                <th>Precio</th>
                                 <th>Cantidad</th>
+                                <th>Precio</th>
                                 <th>Eliminar</th>
-                                <th>Subtotal</th>
                             </tr>
                         </thead>
                         <tbody>
                             {detallesOrden.map((detalle, index) => (
                                 <tr key={index}>
                                     <td>{detalle.producto.nombreProducto}</td>
-                                    <td>{detalle.producto.precioProducto}</td>
                                     <td>{detalle.cantidad}</td>
+                                    <td>${detalle.producto.precioProducto.toLocaleString('en-US')}</td>
                                     <td><button onClick={() => eliminarDeOrden(index)}>Eliminar</button></td>
-                                    <td>{detalle.producto.precioProducto * detalle.cantidad}</td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
-                    <h2>Total a pagar: {subtotal}</h2>
+                    <h2>Total a pagar: ${subtotal.toLocaleString('en-US')}</h2>
                     <button onClick={crearOrden}>Crear orden</button>
                 </div>
             </div>

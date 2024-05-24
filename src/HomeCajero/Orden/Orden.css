@@ -45,3 +45,44 @@ table {
 .pagar-btn:hover {
     background-color: rgb(236, 84, 84);;
 }
+
+.cantidad-entregada{
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background-color: blue;
+}
+
+.cantidad-entregada, label{
+    font-size: 1.5rem;
+    font-family: "Roboto Slab", serif;
+}
+
+.cantidad-entregada, input{
+    font-size: 1.5rem;
+    font-family: "Roboto Slab", serif;
+    width: 45%;
+    
+}
+
+.cambio{
+    background-color: #A1CDF9;
+    padding: 1rem;
+    border : 1px solid black;
+    width: 30%;
+    margin: 0 auto;
+}
+.cambio-voraz{
+    font-size: 1.5rem;
+    font-family: "Roboto Slab", serif;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.total-cambio{
+    font-size: 1.5rem;
+    font-family: "Roboto Slab", serif;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}

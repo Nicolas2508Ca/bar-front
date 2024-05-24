@@ -2,7 +2,7 @@ import "./Inventario.css"
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { Header } from "../../Header/Header";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 export function Inventario(){
 
@@ -54,7 +54,10 @@ export function Inventario(){
 
         <Header/>
         <div className="table-container">
+            <div className='home-sucursal-titulo'>
             <h2 className="titulo-inventario">Productos en Existencia por Sucursal</h2>
+            <button className="boton-sucursales" onClick={() => window.history.back()}>Regresar</button>
+            </div>
             <table>
                 <thead>
                     <tr>
