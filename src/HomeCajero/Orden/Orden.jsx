@@ -100,7 +100,7 @@ export function Orden() {
                 </table>
                 <div className="info-orden-total">
                     <p className="total-a-pagar">Total a pagar: ${orden.totalOrden}</p>
-                    <label htmlFor="cantidadEntregada">Cantidad entregada:  </label>
+                    <label className="cantidadEntregada" htmlFor="cantidadEntregada">Cantidad entregada:  </label>
                     <input type="number" id="cantidadEntregada" onChange={e => handleCantidadEntregada(e.target.value)} />
                     <p className="total-a-pagar">Cambio:</p>
                     <div className="cambio">

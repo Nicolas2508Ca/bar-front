@@ -21,7 +21,8 @@ export function CrearSucursal() {
         // Redirige al usuario a la página de inicio
         navigate('/Home');
     }).catch(response => {
-      alert("No tienes permitido hacer eso");
+        // Maneja el error
+        console.error(response);
     })
   }
 
