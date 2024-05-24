@@ -106,6 +106,22 @@ body {
     cursor: pointer;
 }
 
+.home-reporte{
+    background-color: cornflowerblue;
+    color: black;
+    font-size: medium;
+    padding: 0.5rem;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-left: 5%;
+}
+
+.home-productos{
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+}
+
 .home_tabla-empleados{
     background-color: white;
     color: black;

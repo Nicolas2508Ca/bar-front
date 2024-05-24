@@ -1,0 +1,25 @@
+.generar-reporte-form{
+    display: flex;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.generar-reporte-form label{
+    margin-right: 1rem;
+}
+
+.generar-reporte-form select{
+    font-size: medium;
+    border: 1px solid black;
+    font-family: "Roboto Slab", serif;
+}
+
+.form label{
+    margin-right: 1rem;
+
+}
+
+.form-group{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

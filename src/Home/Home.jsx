@@ -159,10 +159,13 @@ export function Home() {
 
             <div className='home_titulo'>
                 <h1 className='home_titulo-text'>Gestion de productos</h1>
-                <button 
-                    className='home-crear'
-                    onClick={crearProducto}>Crear producto
-                </button>
+                <div className='home-productos'>
+                    <button 
+                        className='home-crear'
+                        onClick={crearProducto}>Crear producto
+                    </button>
+                    <button className='home-reporte' onClick={() => navigate('/Home/GenerarReporte')}>Generar reporte de ventas</button>
+                </div>
             </div>
             <table className='home_tabla'>
                 <thead className='home_tabla-cabecera'>

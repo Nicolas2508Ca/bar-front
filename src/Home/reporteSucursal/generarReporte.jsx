@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import './generarReporte.css';
 
 
 export function GenerarReporte() {
@@ -83,6 +84,7 @@ export function GenerarReporte() {
 
     return (
         <form className="form" onSubmit={handleSubmit}>
+          <div className='generar-reporte-form'>
             <label>Sucursal</label>
             <select 
               type="text" 
@@ -98,21 +100,25 @@ export function GenerarReporte() {
                 <option key={sucursal.idSucursal} value={sucursal.idSucursal}>{sucursal.nombreSucursal}</option>
               ))}
               </select>
-
-            <label htmlFor="fechaInicio">Fecha Inicio reporte</label>
-            <input
-                type="date"
-                id="fechaInicio"
-                value={fechaInicio}
-                onChange={(e) => setFechaInicio(e.target.value)}
-            />
-            <label htmlFor="fechaFin">Fecha Fin reporte</label>
+            </div>
+            <div className="form-group">
+              <label htmlFor="fechaInicio">Fecha inicio reporte</label>
+              <input
+                  type="date"
+                  id="fechaInicio"
+                  value={fechaInicio}
+                  onChange={(e) => setFechaInicio(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+            <label htmlFor="fechaFin">Fecha fin reporte</label>
             <input
                 type="date"
                 id="fechaFin"
                 value={fechaFinal}
                 onChange={(e) => setFechaFinal(e.target.value)}
             />
+            </div>
             <div className="form-submit">
                 <button type="submit" className="form-button">Generar reporte</button>
             </div>
